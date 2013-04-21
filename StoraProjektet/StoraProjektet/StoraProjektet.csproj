@@ -108,6 +108,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Collision.cs" />
+    <Compile Include="Enemy.cs" />
     <Compile Include="Maps.cs" />
     <Compile Include="Movement.cs" />
     <Compile Include="Player.cs" />
@@ -115,6 +116,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Game1.cs" />
     <Compile Include="Attack.cs" />
+    <Compile Include="Skelett.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Game.ico" />

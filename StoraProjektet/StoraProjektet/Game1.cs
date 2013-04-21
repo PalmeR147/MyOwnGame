@@ -79,6 +79,8 @@ namespace StoraProjektet
         public static int currentTextureY;
         public static int currentTextureX;
         SpriteFont fontDefault;
+        public static Texture2D enemyTexture;
+        Skelett skel;
 
         //Variabler
         public static float speed = gameSize;
@@ -93,9 +95,10 @@ namespace StoraProjektet
         public static int health = 10;
         public static string gameOver = "Game Over";
 
-        //Övrigt
+        //Övrigt / Objekt
         KeyboardState oldState;
         MouseState mus;
+        List<Enemy> enemies = new List<Enemy>();
         enum GameState 
         {
             Menu,
@@ -111,6 +114,13 @@ namespace StoraProjektet
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
+            enemies.Add(new Enemy(128, 128, this.Content));
+            enemies.Add(new Enemy(256, 256, this.Content));
+            enemies.Add(new Enemy(64, 64, this.Content));
+            enemies.Add(new Skelett(100, 100, this.Content));
+            Enemy enemy1 = new Enemy(25,25,this.Content);
+            skel = new Skelett(50, 50, this.Content);
+
             currentTextureY = 0;
             currentTextureX = 0;
             // TODO: use this.Content to load your game content here
@@ -122,6 +132,7 @@ namespace StoraProjektet
             arrowSprite = Content.Load<Texture2D>("Textures/arrow");
             arrowSpriteSheet = Content.Load<Texture2D>("Textures/ArrowSheet");
             fontDefault = Content.Load<SpriteFont>("DefaultFont");
+            enemyTexture = Content.Load<Texture2D>("Textures/Char");
 
             tileSet = Content.Load<Texture2D>("Textures/TileSets/tileset");
 
@@ -224,6 +235,10 @@ namespace StoraProjektet
         {
             Movement.Update(gameTime);
             Attack.Update(gameTime);
+            foreach (Enemy e in enemies)
+            {
+                e.Update();
+            }
         }
         public void GameOverUpdate()
         {
@@ -275,10 +290,16 @@ namespace StoraProjektet
             spriteBatch.Begin(SpriteSortMode.BackToFront, BlendState.AlphaBlend);
             if (currentState == GameState.Playing)
             {
-                spriteBatch.Draw(charSheet, new Rectangle(Convert.ToInt32(charPlace.X) + charWidth, Convert.ToInt32(charPlace.Y) + charHeight, Convert.ToInt32((0.75 * gameSize)), Convert.ToInt32((0.75 * gameSize))), charTex, Color.White);
+                spriteBatch.Draw(charSheet, new Rectangle((int)(charPlace.X) + charWidth, (int)(charPlace.Y) + charHeight, (int)(0.75 * gameSize), (int)(0.75 * gameSize)), charTex, Color.White);
                 Attack.Draw(spriteBatch);
                 spriteBatch.Draw(test, new Rectangle(15,15,health*10,10),Color.White);
+                foreach (Enemy e in enemies)
+                {
+                        e.Draw(spriteBatch);
+                }
+                skel.Draw(spriteBatch);
             }
+            
             spriteBatch.End();
             base.Draw(gameTime);
             

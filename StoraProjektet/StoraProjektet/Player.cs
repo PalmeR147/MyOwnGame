@@ -44,6 +44,7 @@ namespace StoraProjektet
             SpriteBatch.Draw(charSheet, new Rectangle(posX + charSize, posY + charSize, Convert.ToInt32((0.75 * charSize)), Convert.ToInt32((0.75 * charSize))),currentTexture, Color.White);
             SpriteBatch.End();
 
+            
             Draw(SpriteBatch, gameTime);
         }
     }
