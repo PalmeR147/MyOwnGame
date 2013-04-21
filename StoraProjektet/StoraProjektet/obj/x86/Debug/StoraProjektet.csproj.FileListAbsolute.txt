@@ -1,0 +1,43 @@
+c:\users\nti\documents\visual studio 2010\Projects\StoraProjektet\StoraProjektet\StoraProjektet\bin\x86\Debug\Content\Capture.xnb
+c:\users\nti\documents\visual studio 2010\Projects\StoraProjektet\StoraProjektet\StoraProjektet\bin\x86\Debug\StoraProjektet.exe
+c:\users\nti\documents\visual studio 2010\Projects\StoraProjektet\StoraProjektet\StoraProjektet\bin\x86\Debug\StoraProjektet.pdb
+c:\users\nti\documents\visual studio 2010\Projects\StoraProjektet\StoraProjektet\StoraProjektet\obj\x86\Debug\ResolveAssemblyReference.cache
+c:\users\nti\documents\visual studio 2010\Projects\StoraProjektet\StoraProjektet\StoraProjektet\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+c:\users\nti\documents\visual studio 2010\Projects\StoraProjektet\StoraProjektet\StoraProjektet\obj\x86\Debug\StoraProjektet.exe
+c:\users\nti\documents\visual studio 2010\Projects\StoraProjektet\StoraProjektet\StoraProjektet\obj\x86\Debug\StoraProjektet.pdb
+c:\users\nti\documents\visual studio 2010\Projects\StoraProjektet\StoraProjektet\StoraProjektet\bin\x86\Debug\Content\ENAMI.xnb
+C:\Users\nti\documents\visual studio 2010\Projects\StoraProjektet\StoraProjektet\StoraProjektet\bin\x86\Debug\Content\grass_tile.xnb
+C:\Users\nti\documents\visual studio 2010\Projects\StoraProjektet\StoraProjektet\StoraProjektet\bin\x86\Debug\Content\imgres.xnb
+C:\Users\nti\Documents\GitHub\StoraProjektet-PROG-\StoraProjektet\StoraProjektet\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\nti\Documents\GitHub\StoraProjektet-PROG-\StoraProjektet\StoraProjektet\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\nti\Documents\GitHub\StoraProjektet-PROG-\StoraProjektet\StoraProjektet\obj\x86\Debug\StoraProjektet.exe
+C:\Users\nti\Documents\GitHub\StoraProjektet-PROG-\StoraProjektet\StoraProjektet\obj\x86\Debug\StoraProjektet.pdb
+C:\Users\nti\Documents\GitHub\StoraProjektet-PROG-\StoraProjektet\StoraProjektet\bin\x86\Debug\Content\Capture.xnb
+C:\Users\nti\Documents\GitHub\StoraProjektet-PROG-\StoraProjektet\StoraProjektet\bin\x86\Debug\Content\ENAMI.xnb
+C:\Users\nti\Documents\GitHub\StoraProjektet-PROG-\StoraProjektet\StoraProjektet\bin\x86\Debug\Content\grass_tile.xnb
+C:\Users\nti\Documents\GitHub\StoraProjektet-PROG-\StoraProjektet\StoraProjektet\bin\x86\Debug\Content\imgres.xnb
+C:\Users\nti\Documents\GitHub\StoraProjektet-PROG-\StoraProjektet\StoraProjektet\bin\x86\Debug\StoraProjektet.exe
+C:\Users\nti\Documents\GitHub\StoraProjektet-PROG-\StoraProjektet\StoraProjektet\bin\x86\Debug\StoraProjektet.pdb
+C:\Users\nti\Documents\GitHub\StoraProjektet-PROG-\StoraProjektet\StoraProjektet\bin\x86\Debug\Content\Textures\Char.xnb
+C:\Users\Marcus\Documents\GitHub\StoraProjektet-PROG-\StoraProjektet\StoraProjektet\bin\x86\Debug\Content\Capture.xnb
+C:\Users\Marcus\Documents\GitHub\StoraProjektet-PROG-\StoraProjektet\StoraProjektet\bin\x86\Debug\Content\ENAMI.xnb
+C:\Users\Marcus\Documents\GitHub\StoraProjektet-PROG-\StoraProjektet\StoraProjektet\bin\x86\Debug\Content\grass_tile.xnb
+C:\Users\Marcus\Documents\GitHub\StoraProjektet-PROG-\StoraProjektet\StoraProjektet\bin\x86\Debug\Content\imgres.xnb
+C:\Users\Marcus\Documents\GitHub\StoraProjektet-PROG-\StoraProjektet\StoraProjektet\bin\x86\Debug\Content\Textures\Char.xnb
+C:\Users\Marcus\Documents\GitHub\StoraProjektet-PROG-\StoraProjektet\StoraProjektet\bin\x86\Debug\StoraProjektet.exe
+C:\Users\Marcus\Documents\GitHub\StoraProjektet-PROG-\StoraProjektet\StoraProjektet\bin\x86\Debug\StoraProjektet.pdb
+C:\Users\Marcus\Documents\GitHub\StoraProjektet-PROG-\StoraProjektet\StoraProjektet\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Marcus\Documents\GitHub\StoraProjektet-PROG-\StoraProjektet\StoraProjektet\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\Marcus\Documents\GitHub\StoraProjektet-PROG-\StoraProjektet\StoraProjektet\obj\x86\Debug\StoraProjektet.exe
+C:\Users\Marcus\Documents\GitHub\StoraProjektet-PROG-\StoraProjektet\StoraProjektet\obj\x86\Debug\StoraProjektet.pdb
+C:\Users\nti\Documents\GitHub\StoraProjektet-PROG-\StoraProjektet\StoraProjektet\bin\x86\Debug\Content\Textures\Namnlös.xnb
+C:\Users\nti\Documents\GitHub\StoraProjektet-PROG-\StoraProjektet\StoraProjektet\bin\x86\Debug\Content\Textures\water.xnb
+C:\Users\nti\Documents\GitHub\StoraProjektet-PROG-\StoraProjektet\StoraProjektet\bin\x86\Debug\Content\Textures\TileSets\tileset.xnb
+C:\Users\Marcus\Documents\GitHub\StoraProjektet-PROG-\StoraProjektet\StoraProjektet\bin\x86\Debug\Content\Textures\Namnlös.xnb
+C:\Users\Marcus\Documents\GitHub\StoraProjektet-PROG-\StoraProjektet\StoraProjektet\bin\x86\Debug\Content\Textures\water.xnb
+C:\Users\Marcus\Documents\GitHub\StoraProjektet-PROG-\StoraProjektet\StoraProjektet\bin\x86\Debug\Content\Textures\TileSets\tileset.xnb
+C:\Users\Marcus\Documents\GitHub\StoraProjektet-PROG-\StoraProjektet\StoraProjektet\bin\x86\Debug\Content\Textures\play.xnb
+C:\Users\Marcus\Documents\GitHub\StoraProjektet-PROG-\StoraProjektet\StoraProjektet\bin\x86\Debug\Content\Textures\GubbeSheet.xnb
+C:\Users\Marcus\Documents\GitHub\StoraProjektet-PROG-\StoraProjektet\StoraProjektet\bin\x86\Debug\Content\Textures\arrow.xnb
+C:\Users\Marcus\Documents\GitHub\StoraProjektet-PROG-\StoraProjektet\StoraProjektet\bin\x86\Debug\Content\Textures\ArrowSheet.xnb
+C:\Users\Marcus\Documents\GitHub\StoraProjektet-PROG-\StoraProjektet\StoraProjektet\bin\x86\Debug\Content\DefaultFont.xnb
