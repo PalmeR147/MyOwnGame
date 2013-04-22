@@ -4,24 +4,30 @@ using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework;
 
 namespace StoraProjektet
 {
-    class Skelett : Enemy
+    public class Skelett : Enemy
     {
-        public Skelett(int xPos, int yPos, ContentManager Content)
-            : base(xPos, yPos, Content)
+
+        public Skelett(int xPos, int yPos, ContentManager Content, int maxX, int maxY, int minX, int minY)
+            : base(xPos, yPos, Content, maxX, maxY, minX, minY)
         {
-            enemyTexture = Content.Load<Texture2D>("ENAMI");
+            enemyTexture = Content.Load<Texture2D>("gaikotu");
+            this.maxX = maxX;
+            this.maxY = maxY;
+            this.minX = minX;
+            this.minY = minY;
         }
         public void Skjuta()
         {
 
         }
-        public override void Update()
+        public override void Update(GameTime gameTime)
         {
-
-            base.Update();
+            base.Update(gameTime);
         }
+        
     }
 }

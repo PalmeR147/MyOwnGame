@@ -81,6 +81,7 @@ namespace StoraProjektet
         SpriteFont fontDefault;
         public static Texture2D enemyTexture;
         Skelett skel;
+        public Rectangle charBox;
 
         //Variabler
         public static float speed = gameSize;
@@ -94,6 +95,8 @@ namespace StoraProjektet
         public static int minX;
         public static int health = 10;
         public static string gameOver = "Game Over";
+        public static float timer = 0;
+        public static float interval = 1000;
 
         //Övrigt / Objekt
         KeyboardState oldState;
@@ -114,13 +117,13 @@ namespace StoraProjektet
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            enemies.Add(new Enemy(128, 128, this.Content));
-            enemies.Add(new Enemy(256, 256, this.Content));
-            enemies.Add(new Enemy(64, 64, this.Content));
-            enemies.Add(new Skelett(100, 100, this.Content));
-            Enemy enemy1 = new Enemy(25,25,this.Content);
-            skel = new Skelett(50, 50, this.Content);
-
+            enemies.Add(new Enemy(128, 128, this.Content,256,256,64,64));
+            enemies.Add(new Enemy(256, 256, this.Content,512,512,128,128));
+            enemies.Add(new Enemy(64, 64, this.Content,128,128,32,32));
+            enemies.Add(new Skelett(100, 100, this.Content,150,150,50,50));
+            Enemy enemy1 = new Enemy(25,25,this.Content,50,50,12,12);
+            skel = new Skelett(50, 50, this.Content,100,100,25,25);
+            
             currentTextureY = 0;
             currentTextureX = 0;
             // TODO: use this.Content to load your game content here
@@ -163,18 +166,20 @@ namespace StoraProjektet
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
+
+
             // Allows the game to exit
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 this.Exit();
             // TODO: Add your update logic here
             //Rektanglar / Hitboxes
             //Rectangle walkBox = new Rectangle(Convert.ToInt32(charPlace.X), Convert.ToInt32(charPlace.Y), character.Width, character.Height);
-            Rectangle charBox = new Rectangle(Convert.ToInt32(charPlace.X), Convert.ToInt32(charPlace.Y), character.Width, character.Height);
+            charBox = new Rectangle(Convert.ToInt32(charPlace.X), Convert.ToInt32(charPlace.Y), character.Width, character.Height);
             Rectangle enemyBox = new Rectangle(Convert.ToInt32(enemyPlace.X), Convert.ToInt32(enemyPlace.Y), enemy.Width, enemy.Height);
 
             if (health <= 0)
                 currentState = GameState.GameOver;
-
+            
             charTex = new Rectangle(currentTextureX * 32, currentTextureY * 32, 32, 32);
             maxX = graphics.GraphicsDevice.Viewport.Width - charWidth;
             maxY = graphics.GraphicsDevice.Viewport.Height - charHeight;
@@ -237,8 +242,9 @@ namespace StoraProjektet
             Attack.Update(gameTime);
             foreach (Enemy e in enemies)
             {
-                e.Update();
+                e.Update(gameTime);
             }
+            Invincible(gameTime);
         }
         public void GameOverUpdate()
         {
@@ -249,6 +255,15 @@ namespace StoraProjektet
                     charPlace = new Vector2(0, 0);
                     currentState = GameState.Playing;
                 }
+        }
+        public static bool Invincible(GameTime gameTime)
+        {
+            
+            timer += (float)gameTime.ElapsedGameTime.TotalMilliseconds;
+            if (timer < interval)
+                return true;
+            else
+                return false;
         }
 
         /// <summary>
@@ -297,7 +312,6 @@ namespace StoraProjektet
                 {
                         e.Draw(spriteBatch);
                 }
-                skel.Draw(spriteBatch);
             }
             
             spriteBatch.End();

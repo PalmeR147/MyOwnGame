@@ -38,6 +38,10 @@ namespace StoraProjektet
         {
             
         }
+        public void Invincible()
+        {
+
+        }
         private void Draw(SpriteBatch SpriteBatch, GameTime gameTime)
         {
             SpriteBatch.Begin(SpriteSortMode.BackToFront, BlendState.AlphaBlend);
