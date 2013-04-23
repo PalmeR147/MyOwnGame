@@ -8,6 +8,7 @@ using Microsoft.Xna.Framework.GamerServices;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
+using System.Diagnostics;
 
 namespace StoraProjektet
 {
@@ -30,7 +31,7 @@ namespace StoraProjektet
             {
                 for (int x = 0; x < Maps.map1.GetLength(1); x++)
                 {
-                    if (Maps.map1[y, x] == 0 || Maps.map1[y,x] == 2)
+                    if (Maps.map1[y, x] == 0 || Maps.map1[y,x] == 2 || Maps.map1[y,x] == 6)
                     {
                         collisionTiles.Add(new Rectangle(x * tileWidth, y * tileHeight, tileWidth, tileHeight));
                     }
@@ -65,7 +66,7 @@ namespace StoraProjektet
         //Texturer & rektanglar:
         public static Texture2D character;
         Texture2D enemy;
-        Texture2D test;
+        Texture2D healthTexture;
         Texture2D tileSet;
         Texture2D play;
         Texture2D charSheet;
@@ -80,7 +81,6 @@ namespace StoraProjektet
         public static int currentTextureX;
         SpriteFont fontDefault;
         public static Texture2D enemyTexture;
-        Skelett skel;
         public Rectangle charBox;
 
         //Variabler
@@ -101,11 +101,19 @@ namespace StoraProjektet
         //Övrigt / Objekt
         KeyboardState oldState;
         MouseState mus;
-        List<Enemy> enemies = new List<Enemy>();
+        List<Enemy> enemies1 = new List<Enemy>();
+        List<Enemy> enemies2 = new List<Enemy>();
+        List<Enemy> enemies3 = new List<Enemy>();
+        List<Enemy> enemies4 = new List<Enemy>();
+
         enum GameState 
         {
             Menu,
             Playing,
+            Level1,
+            Level2,
+            Level3,
+            Level4,
             GameOver,
             Paused
         }
@@ -117,19 +125,17 @@ namespace StoraProjektet
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            enemies.Add(new Enemy(128, 128, this.Content,256,256,64,64));
-            enemies.Add(new Enemy(256, 256, this.Content,512,512,128,128));
-            enemies.Add(new Enemy(64, 64, this.Content,128,128,32,32));
-            enemies.Add(new Skelett(100, 100, this.Content,150,150,50,50));
-            Enemy enemy1 = new Enemy(25,25,this.Content,50,50,12,12);
-            skel = new Skelett(50, 50, this.Content,100,100,25,25);
+            enemies1.Add(new Enemy(32, 32, this.Content,32,32,0,0));
+            enemies2.Add(new Enemy(256, 256, this.Content,512,512,128,128));
+            enemies3.Add(new Enemy(64, 64, this.Content,128,128,32,32));
+            enemies4.Add(new Skelett(100, 100, this.Content,150,150,50,50));
             
             currentTextureY = 0;
             currentTextureX = 0;
             // TODO: use this.Content to load your game content here
             character = Content.Load<Texture2D>("Textures/Char");
             enemy = Content.Load<Texture2D>("ENAMI");
-            test = Content.Load<Texture2D>("Textures/Namnlös");
+            healthTexture = Content.Load<Texture2D>("Textures/Namnlös");
             play = Content.Load<Texture2D>("Textures/play");
             charSheet = Content.Load<Texture2D>("Textures/GubbeSheet");
             arrowSprite = Content.Load<Texture2D>("Textures/arrow");
@@ -216,7 +222,19 @@ namespace StoraProjektet
                     MenuUpdate();
                     break;
                 case GameState.Playing:
-                    PlayingUpdate(gameTime);
+                    PlayingUpdate(gameTime,1);
+                    break;
+                case GameState.Level1:
+                    PlayingUpdate(gameTime, 1);
+                    break;
+                case GameState.Level2:
+                    PlayingUpdate(gameTime, 2);
+                    break;
+                case GameState.Level3:
+                    PlayingUpdate(gameTime, 3);
+                    break;
+                case GameState.Level4:
+                    PlayingUpdate(gameTime, 4);
                     break;
                 case GameState.GameOver:
                     GameOverUpdate();
@@ -234,15 +252,136 @@ namespace StoraProjektet
 
             if (mus.LeftButton == ButtonState.Pressed)
                 if (musRec.Intersects(playBut))
-                    currentState = GameState.Playing;
+                {
+                    currentState = GameState.Level1;
+                }
         }
-        public void PlayingUpdate(GameTime gameTime)
+        public void PlayingUpdate(GameTime gameTime,int level)
         {
             Movement.Update(gameTime);
             Attack.Update(gameTime);
-            foreach (Enemy e in enemies)
+            switch (level)
             {
-                e.Update(gameTime);
+                case 1:
+                    if (charPlace.X > GraphicsDevice.Viewport.Width - character.Width)
+                    {
+                        currentState = GameState.Level2;
+                        charPlace.X = 0;
+                        collisionTiles.Clear();
+                        for (int y = 0; y < Maps.map2.GetLength(0); y++)
+                        {
+                            for (int x = 0; x < Maps.map2.GetLength(1); x++)
+                            {
+                                if (Maps.map2[y, x] == 0 || Maps.map2[y, x] == 2 || Maps.map2[y, x] == 6)
+                                {
+                                    collisionTiles.Add(new Rectangle(x * tileWidth, y * tileHeight, tileWidth, tileHeight));
+                                }
+                            }
+                        }
+                    }
+                    foreach (Enemy e1 in enemies1)
+                    {
+                        e1.Update(gameTime);
+                    }
+                    break;
+                case 2:
+                    if (charPlace.X == 0)
+                    {
+                        currentState = GameState.Level1;
+                        charPlace.X = GraphicsDevice.Viewport.Width - character.Width;
+                        collisionTiles.Clear();
+                        for (int y = 0; y < Maps.map1.GetLength(0); y++)
+                        {
+                            for (int x = 0; x < Maps.map1.GetLength(1); x++)
+                            {
+                                if (Maps.map1[y, x] == 0 || Maps.map1[y, x] == 2 || Maps.map1[y, x] == 6)
+                                {
+                                    collisionTiles.Add(new Rectangle(x * tileWidth, y * tileHeight, tileWidth, tileHeight));
+                                }
+                            }
+                        }
+                    }
+                    if (charPlace.X > GraphicsDevice.Viewport.Width - character.Width)
+                    {
+                        currentState = GameState.Level3;
+                        charPlace.X = 0;
+                        collisionTiles.Clear();
+                        for (int y = 0; y < Maps.map3.GetLength(0); y++)
+                        {
+                            for (int x = 0; x < Maps.map3.GetLength(1); x++)
+                            {
+                                if (Maps.map3[y, x] == 0 || Maps.map3[y, x] == 2 || Maps.map3[y, x] == 6)
+                                {
+                                    collisionTiles.Add(new Rectangle(x * tileWidth, y * tileHeight, tileWidth, tileHeight));
+                                }
+                            }
+                        }
+                    }
+                    foreach (Enemy e2 in enemies2)
+                    {
+                        e2.Update(gameTime);
+                    }
+                    break;
+                case 3:
+                    if (charPlace.X == 0)
+                    {
+                        currentState = GameState.Level2;
+                        charPlace.X = GraphicsDevice.Viewport.Width - character.Width;
+                        collisionTiles.Clear();
+                        for (int y = 0; y < Maps.map2.GetLength(0); y++)
+                        {
+                            for (int x = 0; x < Maps.map2.GetLength(1); x++)
+                            {
+                                if (Maps.map2[y, x] == 0 || Maps.map2[y, x] == 2 || Maps.map2[y, x] == 6)
+                                {
+                                    collisionTiles.Add(new Rectangle(x * tileWidth, y * tileHeight, tileWidth, tileHeight));
+                                }
+                            }
+                        }
+                    }
+                    if (charPlace.X > GraphicsDevice.Viewport.Width - character.Width)
+                    {
+                        currentState = GameState.Level4;
+                        charPlace.X = 0;
+                        collisionTiles.Clear();
+                        for (int y = 0; y < Maps.map4.GetLength(0); y++)
+                        {
+                            for (int x = 0; x < Maps.map4.GetLength(1); x++)
+                            {
+                                if (Maps.map4[y, x] == 0 || Maps.map4[y, x] == 2 || Maps.map4[y, x] == 6)
+                                {
+                                    collisionTiles.Add(new Rectangle(x * tileWidth, y * tileHeight, tileWidth, tileHeight));
+                                }
+                            }
+                        }
+                    }
+                    foreach (Enemy e3 in enemies3)
+                    {
+                        e3.Update(gameTime);
+                    }
+                    break;
+                case 4:
+                    if (charPlace.X <= 0)
+                    {
+                        currentState = GameState.Level3;
+                        charPlace.X = GraphicsDevice.Viewport.Width - character.Width;
+                        collisionTiles.Clear();
+                        for (int y = 0; y < Maps.map3.GetLength(0); y++)
+                        {
+                            for (int x = 0; x < Maps.map3.GetLength(1); x++)
+                            {
+                                if (Maps.map3[y, x] == 0 || Maps.map3[y, x] == 2 || Maps.map3[y, x] == 6)
+                                {
+                                    collisionTiles.Add(new Rectangle(x * tileWidth, y * tileHeight, tileWidth, tileHeight));
+                                }
+                            }
+                        }
+                    }
+                    foreach (Enemy e4 in enemies4)
+                    {
+                        e4.Update(gameTime);
+                    }
+                    break;
             }
             Invincible(gameTime);
         }
@@ -253,7 +392,7 @@ namespace StoraProjektet
                 {
                     health = 10;
                     charPlace = new Vector2(0, 0);
-                    currentState = GameState.Playing;
+                    currentState = GameState.Level1;
                 }
         }
         public static bool Invincible(GameTime gameTime)
@@ -278,8 +417,11 @@ namespace StoraProjektet
             spriteBatch.Begin(SpriteSortMode.BackToFront, BlendState.AlphaBlend);
             //spriteBatch.Draw(enemy, enemyPlace, Color.White);
 
-            //Ritar upp banan OM man inte är i menyn
             if (currentState == GameState.Playing)
+            {
+                
+            }
+            if (currentState == GameState.Level1)
             {
                 for (int y = 0; y < Maps.map1.GetLength(0); y++)
                 {
@@ -290,6 +432,41 @@ namespace StoraProjektet
                     }
                 }
             }
+            if (currentState == GameState.Level2)
+            {
+                for (int y = 0; y < Maps.map2.GetLength(0); y++)
+                {
+                    for (int x = 0; x < Maps.map2.GetLength(1); x++)
+                    {
+                        //spriteBatch.Draw(tiles[Maps.map1[y,x]], new Rectangle(x * tileWidth, y * tileHeight, tileWidth, tileHeight), new Rectangle(5,5,25,25), Color.White);
+                        spriteBatch.Draw(tileSet, new Rectangle(x * tileWidth, y * tileHeight, tileWidth, tileHeight), new Rectangle(Maps.map2[y, x] * 48, 0, 48, 48), Color.White);
+                    }
+                }
+            }
+            if (currentState == GameState.Level3)
+            {
+                for (int y = 0; y < Maps.map3.GetLength(0); y++)
+                {
+                    for (int x = 0; x < Maps.map3.GetLength(1); x++)
+                    {
+                        //spriteBatch.Draw(tiles[Maps.map1[y,x]], new Rectangle(x * tileWidth, y * tileHeight, tileWidth, tileHeight), new Rectangle(5,5,25,25), Color.White);
+                        spriteBatch.Draw(tileSet, new Rectangle(x * tileWidth, y * tileHeight, tileWidth, tileHeight), new Rectangle(Maps.map3[y, x] * 48, 0, 48, 48), Color.White);
+                    }
+                }
+            }
+            if (currentState == GameState.Level4)
+            {
+                for (int y = 0; y < Maps.map4.GetLength(0); y++)
+                {
+                    for (int x = 0; x < Maps.map4.GetLength(1); x++)
+                    {
+                        //spriteBatch.Draw(tiles[Maps.map1[y,x]], new Rectangle(x * tileWidth, y * tileHeight, tileWidth, tileHeight), new Rectangle(5,5,25,25), Color.White);
+                        spriteBatch.Draw(tileSet, new Rectangle(x * tileWidth, y * tileHeight, tileWidth, tileHeight), new Rectangle(Maps.map4[y, x] * 48, 0, 48, 48), Color.White);
+                    }
+                }
+            }
+
+
             //^Map^
 
             if (currentState == GameState.Menu)
@@ -303,14 +480,39 @@ namespace StoraProjektet
             }
             spriteBatch.End();
             spriteBatch.Begin(SpriteSortMode.BackToFront, BlendState.AlphaBlend);
-            if (currentState == GameState.Playing)
+
+            if (currentState == GameState.Playing || currentState == GameState.Level1 || currentState == GameState.Level2 || currentState == GameState.Level3 || currentState == GameState.Level4)
             {
                 spriteBatch.Draw(charSheet, new Rectangle((int)(charPlace.X) + charWidth, (int)(charPlace.Y) + charHeight, (int)(0.75 * gameSize), (int)(0.75 * gameSize)), charTex, Color.White);
                 Attack.Draw(spriteBatch);
-                spriteBatch.Draw(test, new Rectangle(15,15,health*10,10),Color.White);
-                foreach (Enemy e in enemies)
+                spriteBatch.Draw(healthTexture, new Rectangle(15, 15, health * 10, 10), Color.White);
+            }
+            if (currentState == GameState.Level1)
+            {
+                foreach (Enemy e1 in enemies1)
                 {
-                        e.Draw(spriteBatch);
+                    e1.Draw(spriteBatch);
+                }
+            }
+            if (currentState == GameState.Level2)
+            {
+                foreach (Enemy e2 in enemies2)
+                {
+                    e2.Draw(spriteBatch);
+                }
+            }
+            if (currentState == GameState.Level3)
+            {
+                foreach (Enemy e3 in enemies3)
+                {
+                    e3.Draw(spriteBatch);
+                }
+            }
+            if (currentState == GameState.Level4)
+            {
+                foreach (Enemy e4 in enemies4)
+                {
+                    e4.Draw(spriteBatch);
                 }
             }
             
