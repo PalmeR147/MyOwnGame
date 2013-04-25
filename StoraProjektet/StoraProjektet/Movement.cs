@@ -42,14 +42,14 @@ namespace StoraProjektet
             {
                 case Direction.Right:
                         Game1.currentTextureY = 2;
-                        Game1.charPlace.X += 5;
+                        Game1.charPlace.X += 1;
                         charAnim(gameTime);
                         if (Game1.charPlace.X % Game1.gameSize == 0)
                             currentDirection = Direction.Still;
                     break;
                 case Direction.Left:
                         Game1.currentTextureY = 1;
-                        Game1.charPlace.X -= 5;
+                        Game1.charPlace.X -= 1;
                         charAnim(gameTime);
                         if (Game1.charPlace.X % Game1.gameSize == 0)
                             currentDirection = Direction.Still;

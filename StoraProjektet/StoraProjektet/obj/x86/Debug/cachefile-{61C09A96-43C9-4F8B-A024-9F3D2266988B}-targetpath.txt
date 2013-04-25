@@ -12,3 +12,4 @@ Content\Textures\arrow.xnb
 Content\Textures\ArrowSheet.xnb
 Content\gaikotu.xnb
 Content\DefaultFont.xnb
+Content\Textures\TileSets\MobsTileset.xnb

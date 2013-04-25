@@ -81,7 +81,7 @@ namespace StoraProjektet
         public static int currentTextureX;
         SpriteFont fontDefault;
         public static Texture2D enemyTexture;
-        public Rectangle charBox;
+        public static Rectangle charBox;
 
         //Variabler
         public static float speed = gameSize;
@@ -125,10 +125,13 @@ namespace StoraProjektet
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            enemies1.Add(new Enemy(32, 32, this.Content,32,32,0,0));
-            enemies2.Add(new Enemy(256, 256, this.Content,512,512,128,128));
-            enemies3.Add(new Enemy(64, 64, this.Content,128,128,32,32));
-            enemies4.Add(new Skelett(100, 100, this.Content,150,150,50,50));
+            enemies1.Add(new Skelett(32, 32, this.Content, 32, 32, 0, 0, 3, 32, 48,0,0));
+            enemies1.Add(new Zombie(128, 128, 64, 64, this.Content, 96, 96, 2, 32, 32,0,0));
+            enemies1.Add(new Zombie(64, 64, 32, 32, this.Content, 50, 50, 2, 32, 32, 1, 1));
+            enemies1.Add(new Zombie(64, 64, 32, 32, this.Content, 32, 64, 2, 32, 32, 2, 2));
+            enemies2.Add(new Skelett(256, 256, this.Content, 512, 512, 128, 128, 3, 32, 48,0,0));
+            enemies3.Add(new Skelett(64, 64, this.Content, 128, 128, 32, 32, 3, 32, 48,0,0));
+            enemies4.Add(new Skelett(100, 100, this.Content, 150, 150, 50, 50, 3, 32, 48,0,0));
             
             currentTextureY = 0;
             currentTextureX = 0;
@@ -260,6 +263,7 @@ namespace StoraProjektet
         {
             Movement.Update(gameTime);
             Attack.Update(gameTime);
+            
             switch (level)
             {
                 case 1:

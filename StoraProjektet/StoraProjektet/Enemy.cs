@@ -21,8 +21,13 @@ namespace StoraProjektet
         public int maxY;
         public int minX;
         public int minY;
+        public int maxAnimations;
+        public int mobWidth;
+        public int mobHeight;
+        public int xMod;
+        public int yMod;
 
-        Rectangle enemyRect;
+        public Rectangle enemyRect;
         Rectangle sourceRect;
         Rectangle charBox;
 
@@ -36,7 +41,7 @@ namespace StoraProjektet
 
         public Direction currentDirection = Direction.Right;
 
-        public Enemy(int posX, int posY, ContentManager Content, int maxX, int maxY, int minX, int minY)
+        public Enemy(int posX, int posY, ContentManager Content, int maxX, int maxY, int minX, int minY, int maxAnimations, int mobWidth, int mobHeight, int xMod, int yMod)
         {
             xPos = posX;
             yPos = posY;
@@ -46,11 +51,20 @@ namespace StoraProjektet
             this.maxY = maxY;
             this.minX = minX;
             this.minY = minY;
+            this.mobWidth = mobWidth;
+            this.mobHeight = mobHeight;
+            this.maxAnimations = maxAnimations;
+            this.xMod = xMod;
+            this.yMod = yMod;
 
             enemyRect = new Rectangle(xPos, yPos, Game1.gameSize, Game1.gameSize);
             sourceRect = new Rectangle(0, 0, 32, 48);
         }
 
+        public int XMod()
+        {
+            return (maxAnimations + 1) * mobWidth * xMod;
+        }
         public float timer = 0;
         public float interval = 75;
         public void moveAnim(GameTime gameTime)
@@ -61,7 +75,7 @@ namespace StoraProjektet
             {
                 timer = 0;
                 currentTextureX += 1;
-                if (currentTextureX > 3)
+                if (currentTextureX > maxAnimations)
                     currentTextureX = 0;
             }
         }
@@ -75,8 +89,12 @@ namespace StoraProjektet
                     Game1.health -= 1;
                     Game1.timer = 0;
                 }
-                if (Attack.arrowHitbox.Intersects(enemyRect))
+                if (Attack.arrowHitbox.Intersects(enemyRect) && Attack.isShooting && Attack.attackType != Attack.typeOfAttack.None)
+                {
                     alive = false;
+                    Attack.isShooting = false;
+                    Attack.attackType = Attack.typeOfAttack.None;
+                }
             }
 
             switch (currentDirection)
@@ -96,7 +114,7 @@ namespace StoraProjektet
                         currentDirection = Direction.Right;
                     break;
             }
-            sourceRect = new Rectangle(currentTextureX * 32, currentTextureY * 48, 32, 48);
+            sourceRect = new Rectangle(currentTextureX * mobWidth + XMod(), currentTextureY * mobHeight /*+Modifier*/, mobWidth, mobHeight);
             enemyRect = new Rectangle(xPos, yPos, Game1.gameSize, Game1.gameSize);
         }
         public void Draw(SpriteBatch spriteBatch)

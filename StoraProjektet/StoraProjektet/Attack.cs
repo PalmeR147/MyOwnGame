@@ -43,11 +43,16 @@ namespace StoraProjektet
         public static int spritePlaceModY = 0;
         public static float spriteSizeModH = 1;
 
+        public static Enemy t;
+        
+
         public static void Update(GameTime gameTime)
         {
             //Kollar Knapptryck, och isåfall bestämmer vilken bild som skall visas från spriteSheeten och åt vilket håll man skjuter.
             currentKey = Keyboard.GetState();
             //TESTA HP LOSS
+            ContentManager Content;
+            
             if (currentKey.IsKeyDown(Keys.X))
                 Game1.health -= 1;
             if (currentKey.IsKeyDown(Keys.NumPad6) && !isShooting)

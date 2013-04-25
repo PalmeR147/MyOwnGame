@@ -7,8 +7,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Marcus\Documents\GitHub\MyOwnGame\StoraProjektet\StoraProjektet\bin\x86\Debug\Content\Capture.xnb</Output>
-      <Time>2013-04-16T19:19:01.0760783+02:00</Time>
+      <Output>C:\Users\nti\Documents\GitHub\MyOwnGame\StoraProjektet\StoraProjektet\bin\x86\Debug\Content\Capture.xnb</Output>
+      <Time>2013-04-24T08:26:31.6714972+02:00</Time>
     </Item>
     <Item>
       <Source>ENAMI.png</Source>
@@ -16,8 +16,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Marcus\Documents\GitHub\MyOwnGame\StoraProjektet\StoraProjektet\bin\x86\Debug\Content\ENAMI.xnb</Output>
-      <Time>2013-04-16T19:19:01.0760783+02:00</Time>
+      <Output>C:\Users\nti\Documents\GitHub\MyOwnGame\StoraProjektet\StoraProjektet\bin\x86\Debug\Content\ENAMI.xnb</Output>
+      <Time>2013-04-24T08:26:31.6724973+02:00</Time>
     </Item>
     <Item>
       <Source>grass_tile.jpg</Source>
@@ -25,8 +25,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Marcus\Documents\GitHub\MyOwnGame\StoraProjektet\StoraProjektet\bin\x86\Debug\Content\grass_tile.xnb</Output>
-      <Time>2013-04-16T19:19:01.0800785+02:00</Time>
+      <Output>C:\Users\nti\Documents\GitHub\MyOwnGame\StoraProjektet\StoraProjektet\bin\x86\Debug\Content\grass_tile.xnb</Output>
+      <Time>2013-04-24T08:26:31.6974987+02:00</Time>
     </Item>
     <Item>
       <Source>imgres.jpg</Source>
@@ -34,8 +34,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Marcus\Documents\GitHub\MyOwnGame\StoraProjektet\StoraProjektet\bin\x86\Debug\Content\imgres.xnb</Output>
-      <Time>2013-04-16T19:19:01.0800785+02:00</Time>
+      <Output>C:\Users\nti\Documents\GitHub\MyOwnGame\StoraProjektet\StoraProjektet\bin\x86\Debug\Content\imgres.xnb</Output>
+      <Time>2013-04-24T08:26:31.6974987+02:00</Time>
     </Item>
     <Item>
       <Source>Textures\play.jpg</Source>
@@ -43,8 +43,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Marcus\Documents\GitHub\MyOwnGame\StoraProjektet\StoraProjektet\bin\x86\Debug\Content\Textures\play.xnb</Output>
-      <Time>2013-04-20T08:33:43.319173+02:00</Time>
+      <Output>C:\Users\nti\Documents\GitHub\MyOwnGame\StoraProjektet\StoraProjektet\bin\x86\Debug\Content\Textures\play.xnb</Output>
+      <Time>2013-04-24T08:26:31.6954986+02:00</Time>
     </Item>
     <Item>
       <Source>Textures\Char.bmp</Source>
@@ -52,8 +52,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Marcus\Documents\GitHub\MyOwnGame\StoraProjektet\StoraProjektet\bin\x86\Debug\Content\Textures\Char.xnb</Output>
-      <Time>2013-04-16T19:19:01.0780784+02:00</Time>
+      <Output>C:\Users\nti\Documents\GitHub\MyOwnGame\StoraProjektet\StoraProjektet\bin\x86\Debug\Content\Textures\Char.xnb</Output>
+      <Time>2013-04-24T08:26:31.6754975+02:00</Time>
     </Item>
     <Item>
       <Source>Textures\Namnlös.png</Source>
@@ -61,8 +61,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Marcus\Documents\GitHub\MyOwnGame\StoraProjektet\StoraProjektet\bin\x86\Debug\Content\Textures\Namnlös.xnb</Output>
-      <Time>2013-04-16T19:19:01.0780784+02:00</Time>
+      <Output>C:\Users\nti\Documents\GitHub\MyOwnGame\StoraProjektet\StoraProjektet\bin\x86\Debug\Content\Textures\Namnlös.xnb</Output>
+      <Time>2013-04-24T08:26:31.6934985+02:00</Time>
     </Item>
     <Item>
       <Source>Textures\water.png</Source>
@@ -70,8 +70,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Marcus\Documents\GitHub\MyOwnGame\StoraProjektet\StoraProjektet\bin\x86\Debug\Content\Textures\water.xnb</Output>
-      <Time>2013-04-16T19:19:01.0790785+02:00</Time>
+      <Output>C:\Users\nti\Documents\GitHub\MyOwnGame\StoraProjektet\StoraProjektet\bin\x86\Debug\Content\Textures\water.xnb</Output>
+      <Time>2013-04-24T08:26:31.6964987+02:00</Time>
     </Item>
     <Item>
       <Source>Textures\TileSets\tileset.jpg</Source>
@@ -79,8 +79,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Marcus\Documents\GitHub\MyOwnGame\StoraProjektet\StoraProjektet\bin\x86\Debug\Content\Textures\TileSets\tileset.xnb</Output>
-      <Time>2013-04-16T19:19:01.0790785+02:00</Time>
+      <Output>C:\Users\nti\Documents\GitHub\MyOwnGame\StoraProjektet\StoraProjektet\bin\x86\Debug\Content\Textures\TileSets\tileset.xnb</Output>
+      <Time>2013-04-24T08:26:31.6944985+02:00</Time>
     </Item>
     <Item>
       <Source>Textures\GubbeSheet.png</Source>
@@ -88,8 +88,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Marcus\Documents\GitHub\MyOwnGame\StoraProjektet\StoraProjektet\bin\x86\Debug\Content\Textures\GubbeSheet.xnb</Output>
-      <Time>2013-04-20T15:53:24.2360762+02:00</Time>
+      <Output>C:\Users\nti\Documents\GitHub\MyOwnGame\StoraProjektet\StoraProjektet\bin\x86\Debug\Content\Textures\GubbeSheet.xnb</Output>
+      <Time>2013-04-24T08:26:31.6764975+02:00</Time>
     </Item>
     <Item>
       <Source>Textures\arrow.png</Source>
@@ -97,8 +97,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Marcus\Documents\GitHub\MyOwnGame\StoraProjektet\StoraProjektet\bin\x86\Debug\Content\Textures\arrow.xnb</Output>
-      <Time>2013-04-21T15:04:01.6097468+02:00</Time>
+      <Output>C:\Users\nti\Documents\GitHub\MyOwnGame\StoraProjektet\StoraProjektet\bin\x86\Debug\Content\Textures\arrow.xnb</Output>
+      <Time>2013-04-24T08:26:31.6944985+02:00</Time>
     </Item>
     <Item>
       <Source>Textures\ArrowSheet.png</Source>
@@ -106,8 +106,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Marcus\Documents\GitHub\MyOwnGame\StoraProjektet\StoraProjektet\bin\x86\Debug\Content\Textures\ArrowSheet.xnb</Output>
-      <Time>2013-04-21T15:57:24.4609394+02:00</Time>
+      <Output>C:\Users\nti\Documents\GitHub\MyOwnGame\StoraProjektet\StoraProjektet\bin\x86\Debug\Content\Textures\ArrowSheet.xnb</Output>
+      <Time>2013-04-24T08:26:31.6754975+02:00</Time>
     </Item>
     <Item>
       <Source>gaikotu.png</Source>
@@ -115,8 +115,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Marcus\Documents\GitHub\MyOwnGame\StoraProjektet\StoraProjektet\bin\x86\Debug\Content\gaikotu.xnb</Output>
-      <Time>2013-04-22T06:30:18.0296829+02:00</Time>
+      <Output>C:\Users\nti\Documents\GitHub\MyOwnGame\StoraProjektet\StoraProjektet\bin\x86\Debug\Content\gaikotu.xnb</Output>
+      <Time>2013-04-24T08:26:31.6964987+02:00</Time>
     </Item>
     <Item>
       <Source>DefaultFont.spritefont</Source>
@@ -124,8 +124,17 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Marcus\Documents\GitHub\MyOwnGame\StoraProjektet\StoraProjektet\bin\x86\Debug\Content\DefaultFont.xnb</Output>
-      <Time>2013-04-21T16:35:25.8574278+02:00</Time>
+      <Output>C:\Users\nti\Documents\GitHub\MyOwnGame\StoraProjektet\StoraProjektet\bin\x86\Debug\Content\DefaultFont.xnb</Output>
+      <Time>2013-04-24T08:26:31.6724973+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\TileSets\MobsTileset.png</Source>
+      <Name>Textures\TileSets\MobsTileset</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\nti\Documents\GitHub\MyOwnGame\StoraProjektet\StoraProjektet\bin\x86\Debug\Content\Textures\TileSets\MobsTileset.xnb</Output>
+      <Time>2013-04-24T09:02:09.0697494+02:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
@@ -133,10 +142,10 @@
       <TargetProfile>HiDef</TargetProfile>
       <BuildConfiguration>Debug</BuildConfiguration>
       <CompressContent>false</CompressContent>
-      <RootDirectory>C:\Users\Marcus\Documents\GitHub\MyOwnGame\StoraProjektet\StoraProjektetContent\</RootDirectory>
-      <LoggerRootDirectory>C:\Users\Marcus\Documents\GitHub\MyOwnGame\StoraProjektet\StoraProjektet\</LoggerRootDirectory>
-      <IntermediateDirectory>C:\Users\Marcus\Documents\GitHub\MyOwnGame\StoraProjektet\StoraProjektetContent\obj\x86\Debug\</IntermediateDirectory>
-      <OutputDirectory>C:\Users\Marcus\Documents\GitHub\MyOwnGame\StoraProjektet\StoraProjektet\bin\x86\Debug\Content\</OutputDirectory>
+      <RootDirectory>C:\Users\nti\Documents\GitHub\MyOwnGame\StoraProjektet\StoraProjektetContent\</RootDirectory>
+      <LoggerRootDirectory>C:\Users\nti\Documents\GitHub\MyOwnGame\StoraProjektet\StoraProjektet\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Users\nti\Documents\GitHub\MyOwnGame\StoraProjektet\StoraProjektetContent\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Users\nti\Documents\GitHub\MyOwnGame\StoraProjektet\StoraProjektet\bin\x86\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>
@@ -165,7 +174,7 @@
       </Assembly>
       <Assembly>
         <Key>C:\Windows\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
-        <Value>2012-10-15T06:56:34.9820859+02:00</Value>
+        <Value>2012-10-16T08:31:14.3375004+02:00</Value>
       </Assembly>
     </Assemblies>
   </Asset>
