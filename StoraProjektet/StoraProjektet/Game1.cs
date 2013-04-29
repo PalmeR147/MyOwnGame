@@ -26,12 +26,15 @@ namespace StoraProjektet
             IsMouseVisible = true;
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
+            /*graphics.PreferredBackBufferWidth = 400;
+            graphics.PreferredBackBufferHeight = 240;
+            graphics.ApplyChanges();*/
             
-            for (int y = 0; y < Maps.map1.GetLength(0); y++)
+            for (int y = 0; y < Maps.colmap1.GetLength(0); y++)
             {
-                for (int x = 0; x < Maps.map1.GetLength(1); x++)
+                for (int x = 0; x < Maps.colmap1.GetLength(1); x++)
                 {
-                    if (Maps.map1[y, x] == 0 || Maps.map1[y,x] == 2 || Maps.map1[y,x] == 6)
+                    if (Maps.colmap1[y, x] != 140)
                     {
                         collisionTiles.Add(new Rectangle(x * tileWidth, y * tileHeight, tileWidth, tileHeight));
                     }
@@ -57,9 +60,9 @@ namespace StoraProjektet
         /// all of your content.
         /// </summary>
         #region declarations
-        public static int gameSize = 32;
+        public static int gameSize = 16;
         //Vektorer:
-        public static Vector2 charPlace = new Vector2(0, 0);
+        public static Vector2 charPlace = new Vector2(32, 32);
         Vector2 enemyPlace = new Vector2(150, 150);
         Vector2 playButton;
 
@@ -125,7 +128,7 @@ namespace StoraProjektet
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            enemies1.Add(new Skelett(32, 32, this.Content, 32, 32, 0, 0, 3, 32, 48,0,0));
+            enemies1.Add(new Skelett(32, 32, this.Content, 32, 32, 0, 0, 3, 32, 48, 0, 0));
             enemies1.Add(new Zombie(128, 128, 64, 64, this.Content, 96, 96, 2, 32, 32,0,0));
             enemies1.Add(new Zombie(64, 64, 32, 32, this.Content, 50, 50, 2, 32, 32, 1, 1));
             enemies1.Add(new Zombie(64, 64, 32, 32, this.Content, 32, 64, 2, 32, 32, 2, 2));
@@ -146,7 +149,7 @@ namespace StoraProjektet
             fontDefault = Content.Load<SpriteFont>("DefaultFont");
             enemyTexture = Content.Load<Texture2D>("Textures/Char");
 
-            tileSet = Content.Load<Texture2D>("Textures/TileSets/tileset");
+            tileSet = Content.Load<Texture2D>("Textures/TileSets/FIXEDZELDA");
 
             tiles.Add(Content.Load<Texture2D>("grass_tile"));
             tiles.Add(Content.Load<Texture2D>("imgres"));
@@ -175,8 +178,6 @@ namespace StoraProjektet
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
-
-
             // Allows the game to exit
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 this.Exit();
@@ -432,7 +433,14 @@ namespace StoraProjektet
                     for (int x = 0; x < Maps.map1.GetLength(1); x++)
                     {
                         //spriteBatch.Draw(tiles[Maps.map1[y,x]], new Rectangle(x * tileWidth, y * tileHeight, tileWidth, tileHeight), new Rectangle(5,5,25,25), Color.White);
-                        spriteBatch.Draw(tileSet, new Rectangle(x * tileWidth, y * tileHeight, tileWidth, tileHeight), new Rectangle(Maps.map1[y, x] * 48, 0, 48, 48), Color.White);
+                        
+                        int currentTileY = (int)Maps.map1[y,x] / 46;
+                        int currentTileX;
+                        if (Maps.map1[y, x] > 46)
+                            currentTileX = Maps.map1[y, x] % 46 - 1;
+                        else
+                            currentTileX = Maps.map1[y, x]-1;
+                        spriteBatch.Draw(tileSet, new Rectangle(x * tileWidth, y * tileHeight, tileWidth, tileHeight), new Rectangle(currentTileX * 16 + (currentTileX), currentTileY * 16 + (currentTileY), 16, 16), Color.White);
                     }
                 }
             }

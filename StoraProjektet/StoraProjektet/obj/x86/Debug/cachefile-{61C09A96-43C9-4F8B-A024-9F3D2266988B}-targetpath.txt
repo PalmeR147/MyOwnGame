@@ -13,3 +13,4 @@ Content\Textures\ArrowSheet.xnb
 Content\gaikotu.xnb
 Content\DefaultFont.xnb
 Content\Textures\TileSets\MobsTileset.xnb
+Content\Textures\TileSets\FIXEDZELDA.xnb

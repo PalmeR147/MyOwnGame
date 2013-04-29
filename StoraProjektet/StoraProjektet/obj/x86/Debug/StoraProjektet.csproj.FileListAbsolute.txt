@@ -82,3 +82,4 @@ C:\Users\nti\Documents\GitHub\MyOwnGame\StoraProjektet\StoraProjektet\obj\x86\De
 C:\Users\nti\Documents\GitHub\MyOwnGame\StoraProjektet\StoraProjektet\obj\x86\Debug\StoraProjektet.exe
 C:\Users\nti\Documents\GitHub\MyOwnGame\StoraProjektet\StoraProjektet\obj\x86\Debug\StoraProjektet.pdb
 C:\Users\nti\Documents\GitHub\MyOwnGame\StoraProjektet\StoraProjektet\bin\x86\Debug\Content\Textures\TileSets\MobsTileset.xnb
+C:\Users\nti\Documents\GitHub\MyOwnGame\StoraProjektet\StoraProjektet\bin\x86\Debug\Content\Textures\TileSets\FIXEDZELDA.xnb

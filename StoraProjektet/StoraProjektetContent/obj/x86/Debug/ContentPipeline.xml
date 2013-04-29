@@ -136,6 +136,15 @@
       <Output>C:\Users\nti\Documents\GitHub\MyOwnGame\StoraProjektet\StoraProjektet\bin\x86\Debug\Content\Textures\TileSets\MobsTileset.xnb</Output>
       <Time>2013-04-24T09:02:09.0697494+02:00</Time>
     </Item>
+    <Item>
+      <Source>Textures\TileSets\FIXEDZELDA.png</Source>
+      <Name>Textures\TileSets\FIXEDZELDA</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\nti\Documents\GitHub\MyOwnGame\StoraProjektet\StoraProjektet\bin\x86\Debug\Content\Textures\TileSets\FIXEDZELDA.xnb</Output>
+      <Time>2013-04-26T10:07:15.3162042+02:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>
