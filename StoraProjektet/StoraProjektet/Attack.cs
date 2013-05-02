@@ -42,6 +42,9 @@ namespace StoraProjektet
         public static float spriteSizeModW = 1;
         public static int spritePlaceModY = 0;
         public static float spriteSizeModH = 1;
+        public static int startPosX;
+        public static int startPosY;
+        public static int range = 2;
 
         public static Enemy t;
         
@@ -57,6 +60,8 @@ namespace StoraProjektet
                 Game1.health -= 1;
             if (currentKey.IsKeyDown(Keys.NumPad6) && !isShooting)
             {
+                startPosX = (int)Game1.charPlace.X;
+                startPosY = (int)Game1.charPlace.Y;
                 spriteX = 0;
                 spriteY = 150;
                 spriteWidth = 150;
@@ -67,6 +72,8 @@ namespace StoraProjektet
             }
             if (currentKey.IsKeyDown(Keys.NumPad4) && !isShooting)
             {
+                startPosX = (int)Game1.charPlace.X;
+                startPosY = (int)Game1.charPlace.Y;
                 spriteX = 30;
                 spriteY = 0;
                 spriteWidth = 150;
@@ -77,6 +84,8 @@ namespace StoraProjektet
             }
             if (currentKey.IsKeyDown(Keys.NumPad8) && !isShooting)
             {
+                startPosX = (int)Game1.charPlace.X;
+                startPosY = (int)Game1.charPlace.Y;
                 spriteX = 0;
                 spriteY = 0;
                 spriteWidth = 30;
@@ -87,6 +96,8 @@ namespace StoraProjektet
             }
             if (currentKey.IsKeyDown(Keys.NumPad2) && !isShooting)
             {
+                startPosX = (int)Game1.charPlace.X;
+                startPosY = (int)Game1.charPlace.Y;
                 spriteX = 150;
                 spriteY = 30;
                 spriteWidth = 30;
@@ -108,8 +119,8 @@ namespace StoraProjektet
                     spritePlaceModX = 0;
                     spriteSizeModW = 1f;
                     isShooting = true;
-                    arrowX += 3;
-                    if (arrowX > Game1.maxX || Collision.isColliding("ArrowRight"))
+                    arrowX += 2;
+                    if (arrowX > Game1.maxX || Collision.isColliding("ArrowRight") || startPosX + range * 16 <= arrowX)
                     {
                         attackType = typeOfAttack.None;
                         isShooting = false;
@@ -121,8 +132,8 @@ namespace StoraProjektet
                     spritePlaceModX = 0;
                     spriteSizeModW = 1f;
                     isShooting = true;
-                    arrowX -= 3;
-                    if (arrowX < Game1.minX || Collision.isColliding("ArrowLeft"))
+                    arrowX -= 2;
+                    if (arrowX < Game1.minX || Collision.isColliding("ArrowLeft") || startPosX - range * 16 >= arrowX)
                     {
                         attackType = typeOfAttack.None;
                         isShooting = false;
@@ -134,8 +145,8 @@ namespace StoraProjektet
                     spritePlaceModY = 0;
                     spriteSizeModH = 1f;
                     isShooting = true;
-                    arrowY -= 3;
-                    if (arrowY < Game1.minY || Collision.isColliding("ArrowUp"))
+                    arrowY -= 2;
+                    if (arrowY < Game1.minY || Collision.isColliding("ArrowUp") || startPosY - range * 16 >= arrowY)
                     {
                         attackType = typeOfAttack.None;
                         isShooting = false;
@@ -147,8 +158,8 @@ namespace StoraProjektet
                     spritePlaceModY = 0;
                     spriteSizeModH = 1f;
                     isShooting = true;
-                    arrowY += 3;
-                    if (arrowY > Game1.maxY || Collision.isColliding("ArrowDown"))
+                    arrowY += 2;
+                    if (arrowY > Game1.maxY || Collision.isColliding("ArrowDown") || startPosY + range*16 <= arrowY)
                     {
                         attackType = typeOfAttack.None;
                         isShooting = false;

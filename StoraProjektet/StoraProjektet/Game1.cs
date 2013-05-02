@@ -34,7 +34,7 @@ namespace StoraProjektet
             {
                 for (int x = 0; x < Maps.colmap1.GetLength(1); x++)
                 {
-                    if (Maps.colmap1[y, x] != 140)
+                    if (Maps.colmap1[y, x] != 0)
                     {
                         collisionTiles.Add(new Rectangle(x * tileWidth, y * tileHeight, tileWidth, tileHeight));
                     }
@@ -53,6 +53,11 @@ namespace StoraProjektet
             // TODO: Add your initialization logic here
             oldState = Keyboard.GetState();
             base.Initialize();
+            graphics.PreferredBackBufferHeight = 240;
+
+            graphics.PreferredBackBufferWidth = 400;
+
+            graphics.ApplyChanges();
         }
 
         /// <summary>
@@ -128,13 +133,13 @@ namespace StoraProjektet
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            enemies1.Add(new Skelett(32, 32, this.Content, 32, 32, 0, 0, 3, 32, 48, 0, 0));
-            enemies1.Add(new Zombie(128, 128, 64, 64, this.Content, 96, 96, 2, 32, 32,0,0));
-            enemies1.Add(new Zombie(64, 64, 32, 32, this.Content, 50, 50, 2, 32, 32, 1, 1));
-            enemies1.Add(new Zombie(64, 64, 32, 32, this.Content, 32, 64, 2, 32, 32, 2, 2));
-            enemies2.Add(new Skelett(256, 256, this.Content, 512, 512, 128, 128, 3, 32, 48,0,0));
-            enemies3.Add(new Skelett(64, 64, this.Content, 128, 128, 32, 32, 3, 32, 48,0,0));
-            enemies4.Add(new Skelett(100, 100, this.Content, 150, 150, 50, 50, 3, 32, 48,0,0));
+            enemies1.Add(new Skelett(2, 2, this.Content, 4, 1, 32, 48));
+            enemies1.Add(new Zombie(128, 64, this.Content, 96, 96, 32, 32));
+            enemies1.Add(new Zombie(64, 32, this.Content, 50, 50, 32, 32));
+            enemies1.Add(new Zombie(64, 32, this.Content, 32, 64, 32, 32));
+            enemies2.Add(new Skelett(256, 256, this.Content, 512, 128, 32, 48));
+            enemies3.Add(new Skelett(64, 64, this.Content, 128, 32, 32, 48));
+            enemies4.Add(new Skelett(100, 100, this.Content, 150, 50, 32, 48));
             
             currentTextureY = 0;
             currentTextureX = 0;
@@ -264,7 +269,8 @@ namespace StoraProjektet
         {
             Movement.Update(gameTime);
             Attack.Update(gameTime);
-            
+            //Om siffran i map'en är 1, läggs en kollisionsrektangel till, annars ej.
+            #region ColMap and Change Level
             switch (level)
             {
                 case 1:
@@ -277,7 +283,7 @@ namespace StoraProjektet
                         {
                             for (int x = 0; x < Maps.map2.GetLength(1); x++)
                             {
-                                if (Maps.map2[y, x] == 0 || Maps.map2[y, x] == 2 || Maps.map2[y, x] == 6)
+                                if (Maps.map2[y, x] != 0)
                                 {
                                     collisionTiles.Add(new Rectangle(x * tileWidth, y * tileHeight, tileWidth, tileHeight));
                                 }
@@ -299,7 +305,7 @@ namespace StoraProjektet
                         {
                             for (int x = 0; x < Maps.map1.GetLength(1); x++)
                             {
-                                if (Maps.map1[y, x] == 0 || Maps.map1[y, x] == 2 || Maps.map1[y, x] == 6)
+                                if (Maps.map1[y, x] != 0)
                                 {
                                     collisionTiles.Add(new Rectangle(x * tileWidth, y * tileHeight, tileWidth, tileHeight));
                                 }
@@ -315,7 +321,7 @@ namespace StoraProjektet
                         {
                             for (int x = 0; x < Maps.map3.GetLength(1); x++)
                             {
-                                if (Maps.map3[y, x] == 0 || Maps.map3[y, x] == 2 || Maps.map3[y, x] == 6)
+                                if (Maps.map3[y, x] != 0)
                                 {
                                     collisionTiles.Add(new Rectangle(x * tileWidth, y * tileHeight, tileWidth, tileHeight));
                                 }
@@ -337,7 +343,7 @@ namespace StoraProjektet
                         {
                             for (int x = 0; x < Maps.map2.GetLength(1); x++)
                             {
-                                if (Maps.map2[y, x] == 0 || Maps.map2[y, x] == 2 || Maps.map2[y, x] == 6)
+                                if (Maps.map2[y, x] != 0)
                                 {
                                     collisionTiles.Add(new Rectangle(x * tileWidth, y * tileHeight, tileWidth, tileHeight));
                                 }
@@ -353,7 +359,7 @@ namespace StoraProjektet
                         {
                             for (int x = 0; x < Maps.map4.GetLength(1); x++)
                             {
-                                if (Maps.map4[y, x] == 0 || Maps.map4[y, x] == 2 || Maps.map4[y, x] == 6)
+                                if (Maps.map4[y, x] != 0)
                                 {
                                     collisionTiles.Add(new Rectangle(x * tileWidth, y * tileHeight, tileWidth, tileHeight));
                                 }
@@ -375,7 +381,7 @@ namespace StoraProjektet
                         {
                             for (int x = 0; x < Maps.map3.GetLength(1); x++)
                             {
-                                if (Maps.map3[y, x] == 0 || Maps.map3[y, x] == 2 || Maps.map3[y, x] == 6)
+                                if (Maps.map3[y, x] != 0)
                                 {
                                     collisionTiles.Add(new Rectangle(x * tileWidth, y * tileHeight, tileWidth, tileHeight));
                                 }
@@ -388,6 +394,7 @@ namespace StoraProjektet
                     }
                     break;
             }
+            #endregion
             Invincible(gameTime);
         }
         public void GameOverUpdate()

@@ -18,9 +18,7 @@ namespace StoraProjektet
         public int currentTextureX;
         public int currentTextureY;
         public int maxX;
-        public int maxY;
         public int minX;
-        public int minY;
         public int maxAnimations;
         public int mobWidth;
         public int mobHeight;
@@ -41,21 +39,16 @@ namespace StoraProjektet
 
         public Direction currentDirection = Direction.Right;
 
-        public Enemy(int posX, int posY, ContentManager Content, int maxX, int maxY, int minX, int minY, int maxAnimations, int mobWidth, int mobHeight, int xMod, int yMod)
+        public Enemy(int posX, int posY, ContentManager Content, int maxX, int minX, int mobWidth, int mobHeight)
         {
-            xPos = posX;
-            yPos = posY;
+            xPos = posX * Game1.gameSize;
+            yPos = posY * Game1.gameSize;
             enemyTexture = Content.Load<Texture2D>("gaikotu");
             alive = true;
-            this.maxX = maxX;
-            this.maxY = maxY;
-            this.minX = minX;
-            this.minY = minY;
+            this.maxX = maxX * Game1.gameSize;
+            this.minX = minX * Game1.gameSize;
             this.mobWidth = mobWidth;
             this.mobHeight = mobHeight;
-            this.maxAnimations = maxAnimations;
-            this.xMod = xMod;
-            this.yMod = yMod;
 
             enemyRect = new Rectangle(xPos, yPos, Game1.gameSize, Game1.gameSize);
             sourceRect = new Rectangle(0, 0, 32, 48);
