@@ -26,8 +26,11 @@ namespace StoraProjektet
             KeyboardState currentState = Keyboard.GetState();
             //KnappTryck / Rörelse: Kollar kollision och att man inte redan rör på sig. Sätter sedan HÅLLET man är "påväg" åt till höger/vänster/upp/ner
             if ((currentState.IsKeyDown(Keys.Right) || currentState.IsKeyDown(Keys.D)) && !Collision.isColliding("Right") && currentDirection == Direction.Still /*&& !oldState.IsKeyDown(Keys.Right)*/)
+            {
                 //Move("Right");
+                Game1.arrows.Add(new Arrow("arrowRight"));
                 currentDirection = Direction.Right;
+            }
             if ((currentState.IsKeyDown(Keys.Left) || currentState.IsKeyDown(Keys.A)) && !Collision.isColliding("Left") && currentDirection == Direction.Still /*&& !oldState.IsKeyDown(Keys.Left)*/)
                 //Move("Left");
                 currentDirection = Direction.Left;

@@ -53,9 +53,9 @@ namespace StoraProjektet
             // TODO: Add your initialization logic here
             oldState = Keyboard.GetState();
             base.Initialize();
-            graphics.PreferredBackBufferHeight = 240;
+            graphics.PreferredBackBufferHeight = 480;
 
-            graphics.PreferredBackBufferWidth = 400;
+            graphics.PreferredBackBufferWidth = 800;
 
             graphics.ApplyChanges();
         }
@@ -65,7 +65,7 @@ namespace StoraProjektet
         /// all of your content.
         /// </summary>
         #region declarations
-        public static int gameSize = 16;
+        public static int gameSize = 32;
         //Vektorer:
         public static Vector2 charPlace = new Vector2(32, 32);
         Vector2 enemyPlace = new Vector2(150, 150);
@@ -114,6 +114,8 @@ namespace StoraProjektet
         List<Enemy> enemies3 = new List<Enemy>();
         List<Enemy> enemies4 = new List<Enemy>();
 
+        public static List<Arrow> arrows = new List<Arrow>();
+
         enum GameState 
         {
             Menu,
@@ -126,6 +128,14 @@ namespace StoraProjektet
             Paused
         }
 
+        enum shootDir
+        {
+            arrowRight,
+            arrowLeft,
+            arrowUp,
+            arrowDown,
+            none
+        }
         GameState currentState = new GameState();
         #endregion
         protected override void LoadContent()
@@ -133,14 +143,13 @@ namespace StoraProjektet
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            enemies1.Add(new Skelett(2, 2, this.Content, 4, 1, 32, 48));
-            enemies1.Add(new Zombie(21, 23, this.Content, 25, 25, 32, 32));
-            enemies1.Add(new Zombie(12, 10, this.Content, 10, 10, 32, 32));
-            enemies1.Add(new Zombie(6, 3, this.Content, 5, 5, 32, 32));
+            enemies1.Add(new Skelett(14, 9, this.Content, 9, 2));
+            enemies1.Add(new Zombie(5, 2, this.Content, 1, 2));
+            enemies1.Add(new Zombie(5, 2, this.Content, 5, 6));
 
-            enemies2.Add(new Skelett(256, 256, this.Content, 512, 128, 32, 48));
-            enemies3.Add(new Skelett(64, 64, this.Content, 128, 32, 32, 48));
-            enemies4.Add(new Skelett(100, 100, this.Content, 150, 50, 32, 48));
+            enemies2.Add(new Skelett(256, 256, this.Content, 512, 128));
+            enemies3.Add(new Skelett(64, 64, this.Content, 128, 32));
+            enemies4.Add(new Skelett(100, 100, this.Content, 150, 50));
             
             currentTextureY = 0;
             currentTextureX = 0;
@@ -271,6 +280,11 @@ namespace StoraProjektet
             Movement.Update(gameTime);
             
             Attack.Update(gameTime);
+
+            foreach (Arrow a in arrows)
+            {
+                a.Update(gameTime);
+            }
 
             //Om siffran i map'en är 1, läggs en kollisionsrektangel till, annars ej.
             #region ColMap and Change Level
@@ -449,7 +463,7 @@ namespace StoraProjektet
                         if (Maps.map1[y, x] > 46)
                             currentTileX = Maps.map1[y, x] % 46 - 1;
                         else
-                            currentTileX = Maps.map1[y, x]-1;
+                            currentTileX = Maps.map1[y, x] - 1;
                         spriteBatch.Draw(tileSet, new Rectangle(x * tileWidth, y * tileHeight, tileWidth, tileHeight), new Rectangle(currentTileX * 16 + (currentTileX), currentTileY * 16 + (currentTileY), 16, 16), Color.White);
                     }
                 }
@@ -513,6 +527,8 @@ namespace StoraProjektet
             }
             if (currentState == GameState.Level1)
             {
+                foreach (Arrow a in arrows)
+                    a.Draw(spriteBatch);
                 foreach (Enemy e1 in enemies1)
                 {
                     e1.Draw(spriteBatch);

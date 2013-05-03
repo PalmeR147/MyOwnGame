@@ -120,7 +120,7 @@ namespace StoraProjektet
                     spriteSizeModW = 1f;
                     isShooting = true;
                     arrowX += 2;
-                    if (arrowX > Game1.maxX || Collision.isColliding("ArrowRight") || startPosX + range * 16 <= arrowX)
+                    if (arrowX > Game1.maxX || Collision.isColliding("ArrowRight") || startPosX + range * Game1.gameSize <= arrowX)
                     {
                         attackType = typeOfAttack.None;
                         isShooting = false;
@@ -133,7 +133,7 @@ namespace StoraProjektet
                     spriteSizeModW = 1f;
                     isShooting = true;
                     arrowX -= 2;
-                    if (arrowX < Game1.minX || Collision.isColliding("ArrowLeft") || startPosX - range * 16 >= arrowX)
+                    if (arrowX < Game1.minX || Collision.isColliding("ArrowLeft") || startPosX - range * Game1.gameSize >= arrowX)
                     {
                         attackType = typeOfAttack.None;
                         isShooting = false;
@@ -146,7 +146,7 @@ namespace StoraProjektet
                     spriteSizeModH = 1f;
                     isShooting = true;
                     arrowY -= 2;
-                    if (arrowY < Game1.minY || Collision.isColliding("ArrowUp") || startPosY - range * 16 >= arrowY)
+                    if (arrowY < Game1.minY || Collision.isColliding("ArrowUp") || startPosY - range * Game1.gameSize >= arrowY)
                     {
                         attackType = typeOfAttack.None;
                         isShooting = false;
@@ -159,7 +159,7 @@ namespace StoraProjektet
                     spriteSizeModH = 1f;
                     isShooting = true;
                     arrowY += 2;
-                    if (arrowY > Game1.maxY || Collision.isColliding("ArrowDown") || startPosY + range*16 <= arrowY)
+                    if (arrowY > Game1.maxY || Collision.isColliding("ArrowDown") || startPosY + range*Game1.gameSize <= arrowY)
                     {
                         attackType = typeOfAttack.None;
                         isShooting = false;

@@ -42,7 +42,7 @@ namespace StoraProjektet
 
         public Direction currentDirection = Direction.Right;
 
-        public Enemy(int posX, int posY, ContentManager Content, int maxX, int minX, int mobWidth, int mobHeight)
+        public Enemy(int posX, int posY, ContentManager Content, int maxX, int minX)
         {
             xPos = posX * Game1.gameSize;
             yPos = posY * Game1.gameSize;
@@ -51,8 +51,6 @@ namespace StoraProjektet
             alive = true;
             this.maxX = maxX * Game1.gameSize;
             this.minX = minX * Game1.gameSize;
-            this.mobWidth = mobWidth;
-            this.mobHeight = mobHeight;
 
             enemyRect = new Rectangle(xPos, yPos, Game1.gameSize, Game1.gameSize);
             sourceRect = new Rectangle(0, 0, 32, 48);

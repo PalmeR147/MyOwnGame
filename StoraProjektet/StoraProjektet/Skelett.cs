@@ -11,12 +11,14 @@ namespace StoraProjektet
     public class Skelett : Enemy
     {
 
-        public Skelett(int xPos, int yPos, ContentManager Content, int maxX, int minX, int mobWidth, int mobHeight)
-            : base(xPos, yPos, Content, maxX, minX, mobWidth, mobHeight)
+        public Skelett(int maxX, int minX, ContentManager Content,int xPos, int yPos)
+            : base(xPos, yPos, Content, maxX, minX)
         {
             enemyTexture = Content.Load<Texture2D>("gaikotu");
-            this.maxX = maxX * 16;
-            this.minX = minX * 16;
+            this.maxX = maxX * Game1.gameSize;
+            this.minX = minX * Game1.gameSize;
+            mobWidth = 32;
+            mobHeight = 48;
             maxAnimations = 3;
         }
         public void Skjuta()

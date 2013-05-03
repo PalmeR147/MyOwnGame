@@ -9,12 +9,14 @@ namespace StoraProjektet
 {
     class Zombie : Enemy
     {
-        public Zombie(int maxX, int minX, ContentManager Content, int posX, int posY, int mobWidth, int mobHeight)
-            : base(posX, posY, Content, maxX, minX, mobWidth, mobHeight)
+        public Zombie(int maxX, int minX, ContentManager Content, int posX, int posY)
+            : base(posX, posY, Content, maxX, minX)
         {
             enemyTexture = Content.Load<Texture2D>("Textures/TileSets/MobsTileset");
-            this.maxX = maxX * 16;
-            this.minX = minX * 16;
+            this.maxX = maxX * Game1.gameSize;
+            this.minX = minX * Game1.gameSize;
+            mobWidth = 32;
+            mobHeight = 32;
 
             maxAnimations = 2;
             xMod = 1;
