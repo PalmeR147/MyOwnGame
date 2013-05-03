@@ -24,10 +24,13 @@ namespace StoraProjektet
         public int mobHeight;
         public int xMod;
         public int yMod;
+        public int hP = 10;
+        public Texture2D hpTex;
 
         public Rectangle enemyRect;
         Rectangle sourceRect;
         Rectangle charBox;
+        Rectangle hpRec;
 
         public enum Direction
         {
@@ -44,6 +47,7 @@ namespace StoraProjektet
             xPos = posX * Game1.gameSize;
             yPos = posY * Game1.gameSize;
             enemyTexture = Content.Load<Texture2D>("gaikotu");
+            hpTex = Content.Load<Texture2D>("Textures/Namnlös");
             alive = true;
             this.maxX = maxX * Game1.gameSize;
             this.minX = minX * Game1.gameSize;
@@ -75,6 +79,9 @@ namespace StoraProjektet
         
         public virtual void Update(GameTime gameTime)
         {
+            hpRec = new Rectangle(enemyRect.X, enemyRect.Y - enemyRect.Height / 2 + 5, hP * 2, 2);
+
+
             if (alive)
             {
                 if (new Rectangle((int)Game1.charPlace.X, (int)Game1.charPlace.Y, Game1.charWidth, Game1.charHeight).Intersects(enemyRect) && !Game1.Invincible(gameTime))
@@ -82,12 +89,16 @@ namespace StoraProjektet
                     Game1.health -= 1;
                     Game1.timer = 0;
                 }
-                if (Attack.arrowHitbox.Intersects(enemyRect) && Attack.isShooting && Attack.attackType != Attack.typeOfAttack.None)
-                {
+                    if (Attack.arrowHitbox.Intersects(enemyRect) && Attack.isShooting && Attack.attackType != Attack.typeOfAttack.None)
+                    {
+                        
+                        hP -= Attack.damage;
+                        Attack.isShooting = false;
+                        Attack.attackType = Attack.typeOfAttack.None;
+                    }
+                
+                if (hP <= 0)
                     alive = false;
-                    Attack.isShooting = false;
-                    Attack.attackType = Attack.typeOfAttack.None;
-                }
             }
 
             switch (currentDirection)
@@ -112,8 +123,11 @@ namespace StoraProjektet
         }
         public void Draw(SpriteBatch spriteBatch)
         {
-            if(alive)
-                spriteBatch.Draw(enemyTexture,enemyRect,sourceRect,Color.White);
+            if (alive)
+            {
+                spriteBatch.Draw(hpTex, hpRec, Color.Red);
+                spriteBatch.Draw(enemyTexture, enemyRect, sourceRect, Color.White);
+            }
         }
     }
 }

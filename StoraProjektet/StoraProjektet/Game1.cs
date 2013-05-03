@@ -134,9 +134,10 @@ namespace StoraProjektet
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             enemies1.Add(new Skelett(2, 2, this.Content, 4, 1, 32, 48));
-            enemies1.Add(new Zombie(128, 64, this.Content, 96, 96, 32, 32));
-            enemies1.Add(new Zombie(64, 32, this.Content, 50, 50, 32, 32));
-            enemies1.Add(new Zombie(64, 32, this.Content, 32, 64, 32, 32));
+            enemies1.Add(new Zombie(21, 23, this.Content, 25, 25, 32, 32));
+            enemies1.Add(new Zombie(12, 10, this.Content, 10, 10, 32, 32));
+            enemies1.Add(new Zombie(6, 3, this.Content, 5, 5, 32, 32));
+
             enemies2.Add(new Skelett(256, 256, this.Content, 512, 128, 32, 48));
             enemies3.Add(new Skelett(64, 64, this.Content, 128, 32, 32, 48));
             enemies4.Add(new Skelett(100, 100, this.Content, 150, 50, 32, 48));
@@ -268,7 +269,9 @@ namespace StoraProjektet
         public void PlayingUpdate(GameTime gameTime,int level)
         {
             Movement.Update(gameTime);
+            
             Attack.Update(gameTime);
+
             //Om siffran i map'en är 1, läggs en kollisionsrektangel till, annars ej.
             #region ColMap and Change Level
             switch (level)
@@ -503,7 +506,9 @@ namespace StoraProjektet
             if (currentState == GameState.Playing || currentState == GameState.Level1 || currentState == GameState.Level2 || currentState == GameState.Level3 || currentState == GameState.Level4)
             {
                 spriteBatch.Draw(charSheet, new Rectangle((int)(charPlace.X) + charWidth, (int)(charPlace.Y) + charHeight, (int)(0.75 * gameSize), (int)(0.75 * gameSize)), charTex, Color.White);
+
                 Attack.Draw(spriteBatch);
+
                 spriteBatch.Draw(healthTexture, new Rectangle(15, 15, health * 10, 10), Color.White);
             }
             if (currentState == GameState.Level1)

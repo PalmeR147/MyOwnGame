@@ -109,6 +109,7 @@
   <ItemGroup>
     <Compile Include="Collision.cs" />
     <Compile Include="Enemy.cs" />
+    <Compile Include="Item.cs" />
     <Compile Include="Maps.cs" />
     <Compile Include="Movement.cs" />
     <Compile Include="Player.cs" />

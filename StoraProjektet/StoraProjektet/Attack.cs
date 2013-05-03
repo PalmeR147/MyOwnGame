@@ -45,9 +45,9 @@ namespace StoraProjektet
         public static int startPosX;
         public static int startPosY;
         public static int range = 2;
+        public static int damage = 1;
 
         public static Enemy t;
-        
 
         public static void Update(GameTime gameTime)
         {

@@ -20,6 +20,7 @@ namespace StoraProjektet
             Rectangle testWepCol;
             switch (direction)
             {
+                
                 #region ArrowCollision
                 case "ArrowRight":
                     testArrowX += 3;
@@ -70,6 +71,7 @@ namespace StoraProjektet
                     else
                         return false;
                 #endregion
+                    
                 #region moveCollision
                 case "Right":
                     testCharX += Convert.ToInt32(Game1.speed);
