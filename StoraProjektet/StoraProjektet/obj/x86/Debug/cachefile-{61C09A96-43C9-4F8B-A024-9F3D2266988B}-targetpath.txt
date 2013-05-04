@@ -11,6 +11,6 @@ Content\Textures\GubbeSheet.xnb
 Content\Textures\arrow.xnb
 Content\Textures\ArrowSheet.xnb
 Content\gaikotu.xnb
-Content\DefaultFont.xnb
 Content\Textures\TileSets\MobsTileset.xnb
 Content\Textures\TileSets\FIXEDZELDA.xnb
+Content\DefaultFont.xnb
