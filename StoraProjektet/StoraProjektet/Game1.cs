@@ -445,7 +445,8 @@ namespace StoraProjektet
             // TODO: Add your drawing code here
             spriteBatch.Begin(SpriteSortMode.BackToFront, BlendState.AlphaBlend);
             //spriteBatch.Draw(enemy, enemyPlace, Color.White);
-
+            //Ritar bakgrunden, eller det understa, alltså mapen
+            #region MAP/Bottom
             if (currentState == GameState.Playing)
             {
                 
@@ -501,34 +502,33 @@ namespace StoraProjektet
                     }
                 }
             }
-
-
-            //^Map^
-
+#endregion
             if (currentState == GameState.Menu)
             {
+                //Ritar menyn
                 spriteBatch.Draw(play, new Vector2(graphics.PreferredBackBufferWidth / 2 - play.Width / 2, graphics.PreferredBackBufferHeight / 2 - play.Height / 2), Color.White);
             }
             if (currentState == GameState.GameOver)
             {
+                //Ritar gameover skärmen
                 spriteBatch.Draw(play, new Vector2(graphics.PreferredBackBufferWidth / 2 - play.Width / 2, graphics.PreferredBackBufferHeight / 2 - play.Height / 2), Color.White);
                 spriteBatch.DrawString(fontDefault, gameOver, new Vector2(GraphicsDevice.Viewport.Width / 2 - (fontDefault.MeasureString(gameOver).X / 2), GraphicsDevice.Viewport.Height / 2 - (fontDefault.MeasureString(gameOver).Y) - 50), Color.Red);
             }
             spriteBatch.End();
             spriteBatch.Begin(SpriteSortMode.BackToFront, BlendState.AlphaBlend);
-
+            //ritar saker som är högst upp, fiender, player, pilar
+            #region onTopDrawing
             if (currentState == GameState.Playing || currentState == GameState.Level1 || currentState == GameState.Level2 || currentState == GameState.Level3 || currentState == GameState.Level4)
             {
                 spriteBatch.Draw(charSheet, new Rectangle((int)(charPlace.X) + charWidth, (int)(charPlace.Y) + charHeight, (int)(0.75 * gameSize), (int)(0.75 * gameSize)), charTex, Color.White);
-
-                Attack.Draw(spriteBatch);
+               
+                foreach (Arrow a in arrows)
+                    a.Draw(spriteBatch);
 
                 spriteBatch.Draw(healthTexture, new Rectangle(15, 15, health * 10, 10), Color.White);
             }
             if (currentState == GameState.Level1)
             {
-                foreach (Arrow a in arrows)
-                    a.Draw(spriteBatch);
                 foreach (Enemy e1 in enemies1)
                 {
                     e1.Draw(spriteBatch);
@@ -555,7 +555,7 @@ namespace StoraProjektet
                     e4.Draw(spriteBatch);
                 }
             }
-            
+            #endregion
             spriteBatch.End();
             base.Draw(gameTime);
             
