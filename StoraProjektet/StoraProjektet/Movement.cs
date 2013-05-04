@@ -25,20 +25,13 @@ namespace StoraProjektet
         {
             KeyboardState currentState = Keyboard.GetState();
             //KnappTryck / Rörelse: Kollar kollision och att man inte redan rör på sig. Sätter sedan HÅLLET man är "påväg" åt till höger/vänster/upp/ner
-            if ((currentState.IsKeyDown(Keys.Right) || currentState.IsKeyDown(Keys.D)) && !Collision.isColliding("Right") && currentDirection == Direction.Still /*&& !oldState.IsKeyDown(Keys.Right)*/)
-            {
-                //Move("Right");
-                Game1.arrows.Add(new Arrow("arrowRight"));
+            if ((currentState.IsKeyDown(Keys.Right) || currentState.IsKeyDown(Keys.D)) && !Collision.isColliding("Right",0,0) && currentDirection == Direction.Still)
                 currentDirection = Direction.Right;
-            }
-            if ((currentState.IsKeyDown(Keys.Left) || currentState.IsKeyDown(Keys.A)) && !Collision.isColliding("Left") && currentDirection == Direction.Still /*&& !oldState.IsKeyDown(Keys.Left)*/)
-                //Move("Left");
+            if ((currentState.IsKeyDown(Keys.Left) || currentState.IsKeyDown(Keys.A)) && !Collision.isColliding("Left",0,0) && currentDirection == Direction.Still)
                 currentDirection = Direction.Left;
-            if ((currentState.IsKeyDown(Keys.Down) || currentState.IsKeyDown(Keys.S)) && !Collision.isColliding("Down") && currentDirection == Direction.Still /*&& !oldState.IsKeyDown(Keys.Down)*/)
-                //Move("Down");
+            if ((currentState.IsKeyDown(Keys.Down) || currentState.IsKeyDown(Keys.S)) && !Collision.isColliding("Down",0,0) && currentDirection == Direction.Still)
                 currentDirection = Direction.Down;
-            if ((currentState.IsKeyDown(Keys.Up) || currentState.IsKeyDown(Keys.W)) && !Collision.isColliding("Up") && currentDirection == Direction.Still /*&& !oldState.IsKeyDown(Keys.Up)*/)
-                //Move("Up");
+            if ((currentState.IsKeyDown(Keys.Up) || currentState.IsKeyDown(Keys.W)) && !Collision.isColliding("Up",0,0) && currentDirection == Direction.Still)
                 currentDirection = Direction.Up;
             //Kollar hela tiden vilket håll man är påväg åt, rör sig 1 pixel + animerar hela tiden TILLS man står i mitten av en ruta, då sätter den "hållet" till StillaStående
             switch (currentDirection)

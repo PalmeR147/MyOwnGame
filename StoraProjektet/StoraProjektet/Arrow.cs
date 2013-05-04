@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
 
 namespace StoraProjektet
 {
@@ -11,7 +12,7 @@ namespace StoraProjektet
     {
         public int xPos;
         public int yPos;
-        public int range = 3;
+        public int range = 5;
         public int damage = 2;
         public string direction;
         public bool isShooting;
@@ -19,7 +20,9 @@ namespace StoraProjektet
         public int startPosX;
         public int startPosY;
 
-        shootDir shootDirection = shootDir.none;
+        public shootDir shootDirection = shootDir.none;
+
+        KeyboardState key = Keyboard.GetState();
 
         public int spriteX;
         public int spriteY;
@@ -29,6 +32,8 @@ namespace StoraProjektet
         public float spriteSizeModW = 1;
         public int spritePlaceModY = 0;
         public float spriteSizeModH = 1;
+
+        public Rectangle hitBox = new Rectangle();
 
         public enum shootDir
         {
@@ -45,27 +50,46 @@ namespace StoraProjektet
             yPos = (int)Game1.charPlace.Y;
             this.direction = direction;
 
+            isShooting = true;
 
             startPosX = (int)Game1.charPlace.X;
             startPosY = (int)Game1.charPlace.Y;
-            spriteX = 0;
-            spriteY = 150;
-            spriteWidth = 150;
-            spriteHeight = 30;
             xPos = (int)Game1.charPlace.X;
             yPos = (int)Game1.charPlace.Y;
         }
         public void Update(GameTime gameTime)
         {
+            hitBox = new Rectangle(xPos, yPos, Game1.gameSize, Game1.gameSize / 2);
+
             switch (direction)
             {
                 case "arrowRight":
-                    spritePlaceModY = 7;
-                    spriteSizeModH = 0.5f;
-                    spritePlaceModX = 0;
-                    spriteSizeModW = 1f;
-                    isShooting = true;
-                    xPos += 2;
+                    shootDirection = shootDir.arrowRight;
+                    spriteX = 0;
+                    spriteY = 150;
+                    spriteWidth = 150;
+                    spriteHeight = 30;
+                    break;
+                case "arrowLeft":
+                    shootDirection = shootDir.arrowLeft;
+                    spriteX = 30;
+                    spriteY = 0;
+                    spriteWidth = 150;
+                    spriteHeight = 30;
+                    break;
+                case "arrowUp":
+                    shootDirection = shootDir.arrowUp;
+                    spriteX = 0;
+                    spriteY = 0;
+                    spriteWidth = 30;
+                    spriteHeight = 150;
+                    break;
+                case "arrowDown":
+                    shootDirection = shootDir.arrowDown;
+                    spriteX = 150;
+                    spriteY = 30;
+                    spriteWidth = 30;
+                    spriteHeight = 150;
                     break;
             }
             switch (shootDirection)
@@ -76,9 +100,8 @@ namespace StoraProjektet
                     spriteSizeModH = 0.5f;
                     spritePlaceModX = 0;
                     spriteSizeModW = 1f;
-                    isShooting = true;
                     xPos += 2;
-                    if (xPos > Game1.maxX || Collision.isColliding("ArrowRight") || startPosX + range * Game1.gameSize <= xPos)
+                    if (xPos > Game1.maxX || Collision.isColliding("ArrowRight",xPos,yPos) || startPosX + range * Game1.gameSize <= xPos)
                     {
                         shootDirection = shootDir.none;
                         isShooting = false;
@@ -89,9 +112,8 @@ namespace StoraProjektet
                     spriteSizeModH = 0.5f;
                     spritePlaceModX = 0;
                     spriteSizeModW = 1f;
-                    isShooting = true;
                     xPos -= 2;
-                    if (xPos < Game1.minX || Collision.isColliding("ArrowLeft") || startPosX - range * Game1.gameSize >= xPos)
+                    if (xPos < Game1.minX || Collision.isColliding("ArrowLeft",xPos,yPos) || startPosX - range * Game1.gameSize >= xPos)
                     {
                         shootDirection = shootDir.none;
                         isShooting = false;
@@ -102,22 +124,20 @@ namespace StoraProjektet
                     spriteSizeModW = 0.5f;
                     spritePlaceModY = 0;
                     spriteSizeModH = 1f;
-                    isShooting = true;
                     yPos -= 2;
-                    if (yPos < Game1.minY || Collision.isColliding("ArrowUp") || startPosY - range * Game1.gameSize >= yPos)
+                    if (yPos < Game1.minY || Collision.isColliding("ArrowUp",xPos,yPos) || startPosY - range * Game1.gameSize >= yPos)
                     {
                         shootDirection = shootDir.none;
                         isShooting = false;
                     }
                     break;
-                case shootDir.none:
+                case shootDir.arrowDown:
                     spritePlaceModX = 7;
                     spriteSizeModW = 0.5f;
                     spritePlaceModY = 0;
                     spriteSizeModH = 1f;
-                    isShooting = true;
                     yPos += 2;
-                    if (yPos > Game1.maxY || Collision.isColliding("ArrowDown") || startPosY + range * Game1.gameSize <= yPos)
+                    if (yPos < Game1.minY || Collision.isColliding("ArrowDown",xPos,yPos) || startPosY + range * Game1.gameSize <= yPos)
                     {
                         shootDirection = shootDir.none;
                         isShooting = false;

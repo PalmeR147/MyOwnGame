@@ -6,6 +6,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
+using System.Diagnostics;
 
 namespace StoraProjektet
 {
@@ -44,9 +45,12 @@ namespace StoraProjektet
         public static float spriteSizeModH = 1;
         public static int startPosX;
         public static int startPosY;
-        public static int range = 2;
+        public static int range = 4;
         public static int damage = 1;
+        public static Stopwatch s = new Stopwatch();
 
+        public static bool b = true;
+        
         public static Enemy t;
 
         public static void Update(GameTime gameTime)
@@ -55,17 +59,56 @@ namespace StoraProjektet
             currentKey = Keyboard.GetState();
             //TESTA HP LOSS
             ContentManager Content;
+
+            if (b)
+            {
+                s.Start();
+                b = false;
+            }
+
+            if (currentKey.IsKeyDown(Keys.L) && s.ElapsedMilliseconds > 750)
+            {
+                arrowX = (int)Game1.charPlace.X;
+                arrowY = (int)Game1.charPlace.Y;
+                Game1.arrows.Add(new Arrow("arrowRight"));
+                s.Restart();
+                s.Start();
+            }
+            if (currentKey.IsKeyDown(Keys.K) && s.ElapsedMilliseconds > 750)
+            {
+                arrowX = (int)Game1.charPlace.X;
+                arrowY = (int)Game1.charPlace.Y;
+                Game1.arrows.Add(new Arrow("arrowLeft"));
+                s.Restart();
+                s.Start();
+            }
+            if (currentKey.IsKeyDown(Keys.I) && s.ElapsedMilliseconds > 750)
+            {
+                arrowX = (int)Game1.charPlace.X;
+                arrowY = (int)Game1.charPlace.Y;
+                Game1.arrows.Add(new Arrow("arrowUp"));
+                s.Restart();
+                s.Start();
+            }
+            if (currentKey.IsKeyDown(Keys.M) && s.ElapsedMilliseconds > 750)
+            {
+                arrowX = (int)Game1.charPlace.X;
+                arrowY = (int)Game1.charPlace.Y;
+                Game1.arrows.Add(new Arrow("arrowDown"));
+                s.Restart();
+                s.Start();
+            }
             
             if (currentKey.IsKeyDown(Keys.X))
                 Game1.health -= 1;
             if (currentKey.IsKeyDown(Keys.NumPad6) && !isShooting)
             {
-                startPosX = (int)Game1.charPlace.X;
-                startPosY = (int)Game1.charPlace.Y;
-                spriteX = 0;
-                spriteY = 150;
-                spriteWidth = 150;
-                spriteHeight = 30;
+                //startPosX = (int)Game1.charPlace.X;
+                //startPosY = (int)Game1.charPlace.Y;
+                //spriteX = 0;
+                //spriteY = 150;
+                //spriteWidth = 150;
+                //spriteHeight = 30;
                 arrowX = (int)Game1.charPlace.X;
                 arrowY = (int)Game1.charPlace.Y;
                 attackType = typeOfAttack.BowRight;
@@ -112,6 +155,8 @@ namespace StoraProjektet
             arrowHitbox = new Rectangle(arrowX, arrowY, Game1.gameSize, Game1.gameSize / 2);
             switch (attackType)
             {
+                #region oldArrow
+                /*
                 //Beroende på vilket håll man skjuter åt så bestämms massa modifiers (för att den skall vara längre än bred), och sedan skjuts pilen iväg tills den kolliderar med något.
                 case typeOfAttack.BowRight:
                     spritePlaceModY = 7;
@@ -164,7 +209,8 @@ namespace StoraProjektet
                         attackType = typeOfAttack.None;
                         isShooting = false;
                     }
-                    break;
+                    break;*/
+#endregion
                 case typeOfAttack.Magic:
                     //ShootBolt
                     break;

@@ -87,12 +87,15 @@ namespace StoraProjektet
                     Game1.health -= 1;
                     Game1.timer = 0;
                 }
-                    if (Attack.arrowHitbox.Intersects(enemyRect) && Attack.isShooting && Attack.attackType != Attack.typeOfAttack.None)
+
+                    foreach (Arrow a in Game1.arrows)
                     {
-                        
-                        hP -= Attack.damage;
-                        Attack.isShooting = false;
-                        Attack.attackType = Attack.typeOfAttack.None;
+                        if (a.hitBox.Intersects(enemyRect) && a.isShooting && a.shootDirection != Arrow.shootDir.none)
+                        {
+                            hP -= a.damage;
+                            a.isShooting = false;
+                            a.shootDirection = Arrow.shootDir.none;
+                        }
                     }
                 
                 if (hP <= 0)

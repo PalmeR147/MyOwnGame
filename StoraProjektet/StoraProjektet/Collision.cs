@@ -8,15 +8,16 @@ namespace StoraProjektet
 {
     public class Collision
     {
-        public static bool isColliding(string direction)
+        public static bool isColliding(string direction, int x, int y)
         {
             int testCharX = Convert.ToInt32(Game1.charPlace.X);
             int testCharY = Convert.ToInt32(Game1.charPlace.Y);
-            int testArrowX = Attack.arrowX;
-            int testArrowY = Attack.arrowY;
-            int wepCol = 0;
             int col = 0;
             Rectangle testCol;
+
+            int testArrowX = x;
+            int testArrowY = y;
+            int wepCol = 0;
             Rectangle testWepCol;
             switch (direction)
             {
