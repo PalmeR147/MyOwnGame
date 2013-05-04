@@ -60,7 +60,7 @@ namespace StoraProjektet
             switch (direction)
             {
                 case "arrowRight":
-                                        spritePlaceModY = 7;
+                    spritePlaceModY = 7;
                     spriteSizeModH = 0.5f;
                     spritePlaceModX = 0;
                     spriteSizeModW = 1f;
