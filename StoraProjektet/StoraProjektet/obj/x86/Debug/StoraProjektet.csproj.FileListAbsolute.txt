@@ -85,3 +85,7 @@ C:\Users\nti\Documents\GitHub\MyOwnGame\StoraProjektet\StoraProjektet\bin\x86\De
 C:\Users\Marcus\Documents\GitHub\MyOwnGame\StoraProjektet\StoraProjektet\bin\x86\Debug\Content\Textures\TileSets\MobsTileset.xnb
 C:\Users\Marcus\Documents\GitHub\MyOwnGame\StoraProjektet\StoraProjektet\bin\x86\Debug\Content\Textures\TileSets\FIXEDZELDA.xnb
 C:\Users\Marcus\Documents\GitHub\MyOwnGame\StoraProjektet\StoraProjektet\obj\x86\Debug\StoraProjektet.csprojResolveAssemblyReference.cache
+C:\Users\Marcus\Documents\GitHub\MyOwnGame\StoraProjektet\StoraProjektet\bin\x86\Debug\Content\Textures\TileSets\ZeldaComp.xnb
+C:\Users\Marcus\Documents\GitHub\MyOwnGame\StoraProjektet\StoraProjektet\bin\x86\Debug\Content\Textures\TileSets\NewFixedzElda.xnb
+C:\Users\Marcus\Documents\GitHub\MyOwnGame\StoraProjektet\StoraProjektet\bin\x86\Debug\Content\Textures\HPBoutline.xnb
+C:\Users\Marcus\Documents\GitHub\MyOwnGame\StoraProjektet\StoraProjektet\bin\x86\Debug\Content\expandlevel.xnb

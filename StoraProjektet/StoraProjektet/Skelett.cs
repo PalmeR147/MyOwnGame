@@ -20,6 +20,7 @@ namespace StoraProjektet
             mobWidth = 32;
             mobHeight = 48;
             maxAnimations = 3;
+            lvl = 10;
         }
         public void Skjuta()
         {

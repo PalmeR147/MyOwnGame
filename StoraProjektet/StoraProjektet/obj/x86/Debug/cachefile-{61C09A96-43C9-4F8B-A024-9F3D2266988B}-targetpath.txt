@@ -14,3 +14,7 @@ Content\gaikotu.xnb
 Content\Textures\TileSets\MobsTileset.xnb
 Content\Textures\TileSets\FIXEDZELDA.xnb
 Content\DefaultFont.xnb
+Content\Textures\TileSets\ZeldaComp.xnb
+Content\Textures\TileSets\NewFixedzElda.xnb
+Content\Textures\HPBoutline.xnb
+Content\expandlevel.xnb

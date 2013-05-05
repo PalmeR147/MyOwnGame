@@ -75,6 +75,7 @@ namespace StoraProjektet
         public static Texture2D character;
         Texture2D enemy;
         Texture2D healthTexture;
+        Texture2D healthOutline;
         Texture2D tileSet;
         Texture2D play;
         Texture2D charSheet;
@@ -88,6 +89,7 @@ namespace StoraProjektet
         public static int currentTextureY;
         public static int currentTextureX;
         SpriteFont fontDefault;
+        SpriteFont xpLVL;
         public static Texture2D enemyTexture;
         public static Rectangle charBox;
 
@@ -102,6 +104,9 @@ namespace StoraProjektet
         public static int maxX;
         public static int minX;
         public static int health = 10;
+        public static int exp = 0;
+        public static int expToLevel = 50;
+        public static int lvl = 1;
         public static string gameOver = "Game Over";
         public static float timer = 0;
         public static float interval = 1000;
@@ -157,14 +162,19 @@ namespace StoraProjektet
             character = Content.Load<Texture2D>("Textures/Char");
             enemy = Content.Load<Texture2D>("ENAMI");
             healthTexture = Content.Load<Texture2D>("Textures/Namnlös");
+            healthOutline = Content.Load<Texture2D>("Textures/HPBOutline");
             play = Content.Load<Texture2D>("Textures/play");
             charSheet = Content.Load<Texture2D>("Textures/GubbeSheet");
             arrowSprite = Content.Load<Texture2D>("Textures/arrow");
             arrowSpriteSheet = Content.Load<Texture2D>("Textures/ArrowSheet");
             fontDefault = Content.Load<SpriteFont>("DefaultFont");
+            xpLVL = Content.Load<SpriteFont>("expandlevel");
             enemyTexture = Content.Load<Texture2D>("Textures/Char");
 
             tileSet = Content.Load<Texture2D>("Textures/TileSets/FIXEDZELDA");
+            tileSet = Content.Load<Texture2D>("Textures/TileSets/NewFixedzElda");
+            
+
 
             tiles.Add(Content.Load<Texture2D>("grass_tile"));
             tiles.Add(Content.Load<Texture2D>("imgres"));
@@ -281,6 +291,13 @@ namespace StoraProjektet
             
             Attack.Update(gameTime);
 
+            if (exp >= expToLevel)
+            {
+                lvl += 1;
+                exp = 0;
+                expToLevel += expToLevel;
+            }
+
             foreach (Arrow a in arrows)
             {
                 a.Update(gameTime);
@@ -296,11 +313,11 @@ namespace StoraProjektet
                         currentState = GameState.Level2;
                         charPlace.X = 0;
                         collisionTiles.Clear();
-                        for (int y = 0; y < Maps.map2.GetLength(0); y++)
+                        for (int y = 0; y < Maps.colmap2.GetLength(0); y++)
                         {
-                            for (int x = 0; x < Maps.map2.GetLength(1); x++)
+                            for (int x = 0; x < Maps.colmap2.GetLength(1); x++)
                             {
-                                if (Maps.map2[y, x] != 0)
+                                if (Maps.colmap2[y, x] != 0)
                                 {
                                     collisionTiles.Add(new Rectangle(x * tileWidth, y * tileHeight, tileWidth, tileHeight));
                                 }
@@ -318,11 +335,11 @@ namespace StoraProjektet
                         currentState = GameState.Level1;
                         charPlace.X = GraphicsDevice.Viewport.Width - character.Width;
                         collisionTiles.Clear();
-                        for (int y = 0; y < Maps.map1.GetLength(0); y++)
+                        for (int y = 0; y < Maps.colmap1.GetLength(0); y++)
                         {
-                            for (int x = 0; x < Maps.map1.GetLength(1); x++)
+                            for (int x = 0; x < Maps.colmap1.GetLength(1); x++)
                             {
-                                if (Maps.map1[y, x] != 0)
+                                if (Maps.colmap1[y, x] != 0)
                                 {
                                     collisionTiles.Add(new Rectangle(x * tileWidth, y * tileHeight, tileWidth, tileHeight));
                                 }
@@ -334,11 +351,11 @@ namespace StoraProjektet
                         currentState = GameState.Level3;
                         charPlace.X = 0;
                         collisionTiles.Clear();
-                        for (int y = 0; y < Maps.map3.GetLength(0); y++)
+                        for (int y = 0; y < Maps.colmap3.GetLength(0); y++)
                         {
-                            for (int x = 0; x < Maps.map3.GetLength(1); x++)
+                            for (int x = 0; x < Maps.colmap3.GetLength(1); x++)
                             {
-                                if (Maps.map3[y, x] != 0)
+                                if (Maps.colmap3[y, x] != 0)
                                 {
                                     collisionTiles.Add(new Rectangle(x * tileWidth, y * tileHeight, tileWidth, tileHeight));
                                 }
@@ -356,11 +373,11 @@ namespace StoraProjektet
                         currentState = GameState.Level2;
                         charPlace.X = GraphicsDevice.Viewport.Width - character.Width;
                         collisionTiles.Clear();
-                        for (int y = 0; y < Maps.map2.GetLength(0); y++)
+                        for (int y = 0; y < Maps.colmap2.GetLength(0); y++)
                         {
-                            for (int x = 0; x < Maps.map2.GetLength(1); x++)
+                            for (int x = 0; x < Maps.colmap2.GetLength(1); x++)
                             {
-                                if (Maps.map2[y, x] != 0)
+                                if (Maps.colmap2[y, x] != 0)
                                 {
                                     collisionTiles.Add(new Rectangle(x * tileWidth, y * tileHeight, tileWidth, tileHeight));
                                 }
@@ -372,11 +389,11 @@ namespace StoraProjektet
                         currentState = GameState.Level4;
                         charPlace.X = 0;
                         collisionTiles.Clear();
-                        for (int y = 0; y < Maps.map4.GetLength(0); y++)
+                        for (int y = 0; y < Maps.colmap4.GetLength(0); y++)
                         {
-                            for (int x = 0; x < Maps.map4.GetLength(1); x++)
+                            for (int x = 0; x < Maps.colmap4.GetLength(1); x++)
                             {
-                                if (Maps.map4[y, x] != 0)
+                                if (Maps.colmap4[y, x] != 0)
                                 {
                                     collisionTiles.Add(new Rectangle(x * tileWidth, y * tileHeight, tileWidth, tileHeight));
                                 }
@@ -394,11 +411,11 @@ namespace StoraProjektet
                         currentState = GameState.Level3;
                         charPlace.X = GraphicsDevice.Viewport.Width - character.Width;
                         collisionTiles.Clear();
-                        for (int y = 0; y < Maps.map3.GetLength(0); y++)
+                        for (int y = 0; y < Maps.colmap3.GetLength(0); y++)
                         {
-                            for (int x = 0; x < Maps.map3.GetLength(1); x++)
+                            for (int x = 0; x < Maps.colmap3.GetLength(1); x++)
                             {
-                                if (Maps.map3[y, x] != 0)
+                                if (Maps.colmap3[y, x] != 0)
                                 {
                                     collisionTiles.Add(new Rectangle(x * tileWidth, y * tileHeight, tileWidth, tileHeight));
                                 }
@@ -424,6 +441,8 @@ namespace StoraProjektet
                     currentState = GameState.Level1;
                 }
         }
+
+        //För att man inte ska kunna ta skada "snabbt", man blir odödlig i cirka 750ms
         public static bool Invincible(GameTime gameTime)
         {
             
@@ -459,13 +478,13 @@ namespace StoraProjektet
                     {
                         //spriteBatch.Draw(tiles[Maps.map1[y,x]], new Rectangle(x * tileWidth, y * tileHeight, tileWidth, tileHeight), new Rectangle(5,5,25,25), Color.White);
                         
-                        int currentTileY = (int)Maps.map1[y,x] / 46;
+                        int currentTileY = (int)Maps.map1[y,x] / 39;
                         int currentTileX;
-                        if (Maps.map1[y, x] > 46)
-                            currentTileX = Maps.map1[y, x] % 46 - 1;
+                        if (Maps.map1[y, x] > 39)
+                            currentTileX = Maps.map1[y, x] % 39 - 1;
                         else
                             currentTileX = Maps.map1[y, x] - 1;
-                        spriteBatch.Draw(tileSet, new Rectangle(x * tileWidth, y * tileHeight, tileWidth, tileHeight), new Rectangle(currentTileX * 16 + (currentTileX), currentTileY * 16 + (currentTileY), 16, 16), Color.White);
+                        spriteBatch.Draw(tileSet, new Rectangle(x * tileWidth, y * tileHeight, tileWidth, tileHeight), new Rectangle(currentTileX * 16, currentTileY * 16, 16, 16), Color.White);
                     }
                 }
             }
@@ -476,7 +495,14 @@ namespace StoraProjektet
                     for (int x = 0; x < Maps.map2.GetLength(1); x++)
                     {
                         //spriteBatch.Draw(tiles[Maps.map1[y,x]], new Rectangle(x * tileWidth, y * tileHeight, tileWidth, tileHeight), new Rectangle(5,5,25,25), Color.White);
-                        spriteBatch.Draw(tileSet, new Rectangle(x * tileWidth, y * tileHeight, tileWidth, tileHeight), new Rectangle(Maps.map2[y, x] * 48, 0, 48, 48), Color.White);
+                        
+                        int currentTileY = (int)Maps.map2[y, x] / 39;
+                        int currentTileX;
+                        if (Maps.map2[y, x] > 39)
+                            currentTileX = Maps.map2[y, x] % 39 - 1;
+                        else
+                            currentTileX = Maps.map2[y, x] - 1;
+                        spriteBatch.Draw(tileSet, new Rectangle(x * tileWidth, y * tileHeight, tileWidth, tileHeight), new Rectangle(currentTileX * 16, currentTileY * 16, 16, 16), Color.White);  
                     }
                 }
             }
@@ -487,7 +513,14 @@ namespace StoraProjektet
                     for (int x = 0; x < Maps.map3.GetLength(1); x++)
                     {
                         //spriteBatch.Draw(tiles[Maps.map1[y,x]], new Rectangle(x * tileWidth, y * tileHeight, tileWidth, tileHeight), new Rectangle(5,5,25,25), Color.White);
-                        spriteBatch.Draw(tileSet, new Rectangle(x * tileWidth, y * tileHeight, tileWidth, tileHeight), new Rectangle(Maps.map3[y, x] * 48, 0, 48, 48), Color.White);
+                        
+                        int currentTileY = (int)Maps.map3[y, x] / 39;
+                        int currentTileX;
+                        if (Maps.map3[y, x] > 39)
+                            currentTileX = Maps.map3[y, x] % 39 - 1;
+                        else
+                            currentTileX = Maps.map3[y, x] - 1;
+                        spriteBatch.Draw(tileSet, new Rectangle(x * tileWidth, y * tileHeight, tileWidth, tileHeight), new Rectangle(currentTileX * 16, currentTileY * 16, 16, 16), Color.White);
                     }
                 }
             }
@@ -498,7 +531,14 @@ namespace StoraProjektet
                     for (int x = 0; x < Maps.map4.GetLength(1); x++)
                     {
                         //spriteBatch.Draw(tiles[Maps.map1[y,x]], new Rectangle(x * tileWidth, y * tileHeight, tileWidth, tileHeight), new Rectangle(5,5,25,25), Color.White);
-                        spriteBatch.Draw(tileSet, new Rectangle(x * tileWidth, y * tileHeight, tileWidth, tileHeight), new Rectangle(Maps.map4[y, x] * 48, 0, 48, 48), Color.White);
+                        
+                        int currentTileY = (int)Maps.map4[y, x] / 39;
+                        int currentTileX;
+                        if (Maps.map4[y, x] > 39)
+                            currentTileX = Maps.map4[y, x] % 39 - 1;
+                        else
+                            currentTileX = Maps.map4[y, x] - 1;
+                        spriteBatch.Draw(tileSet, new Rectangle(x * tileWidth, y * tileHeight, tileWidth, tileHeight), new Rectangle(currentTileX * 16, currentTileY * 16, 16, 16), Color.White);
                     }
                 }
             }
@@ -525,7 +565,10 @@ namespace StoraProjektet
                 foreach (Arrow a in arrows)
                     a.Draw(spriteBatch);
 
-                spriteBatch.Draw(healthTexture, new Rectangle(15, 15, health * 10, 10), Color.White);
+                spriteBatch.Draw(healthTexture, new Rectangle(gameSize, gameSize/2 - healthOutline.Height/2, health * 10, 10), Color.White);
+                spriteBatch.Draw(healthOutline, new Rectangle(gameSize, gameSize/2 - healthOutline.Height/2, 100, 10), Color.White);
+                spriteBatch.DrawString(xpLVL, "Level: " + lvl.ToString(), new Vector2(GraphicsDevice.Viewport.Width - xpLVL.MeasureString("Level: x").X - 35, Game1.gameSize / 2 + (xpLVL.MeasureString("Level: x").Y) / 2), Color.Black);
+                spriteBatch.DrawString(xpLVL, "Exp: " + exp.ToString() + "/" +expToLevel.ToString(), new Vector2(GraphicsDevice.Viewport.Width - xpLVL.MeasureString("Level: x").X - 35, Game1.gameSize / 2 + (xpLVL.MeasureString("Level: x").Y) + 5), Color.Black);
             }
             if (currentState == GameState.Level1)
             {

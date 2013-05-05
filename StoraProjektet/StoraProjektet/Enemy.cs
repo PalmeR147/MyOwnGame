@@ -26,6 +26,7 @@ namespace StoraProjektet
         public int yMod;
         public int hP = 10;
         public Texture2D hpTex;
+        public int lvl;
 
         public Rectangle enemyRect;
         Rectangle sourceRect;
@@ -97,9 +98,13 @@ namespace StoraProjektet
                             a.shootDirection = Arrow.shootDir.none;
                         }
                     }
-                
-                if (hP <= 0)
-                    alive = false;
+
+                    if (hP <= 0)
+                    {
+                        //SpawnRandomLoot
+                        alive = false;
+                        Game1.exp += 10 * lvl;
+                    }
             }
 
             switch (currentDirection)

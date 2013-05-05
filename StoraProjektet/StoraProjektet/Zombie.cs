@@ -21,6 +21,7 @@ namespace StoraProjektet
             maxAnimations = 2;
             xMod = 1;
             yMod = 1;
+            lvl = 5;
         }
     }
 }

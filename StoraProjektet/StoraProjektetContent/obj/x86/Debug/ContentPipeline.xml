@@ -145,6 +145,42 @@
       <Output>C:\Users\Marcus\Documents\GitHub\MyOwnGame\StoraProjektet\StoraProjektet\bin\x86\Debug\Content\DefaultFont.xnb</Output>
       <Time>2013-05-03T15:37:20.2068628+02:00</Time>
     </Item>
+    <Item>
+      <Source>Textures\TileSets\ZeldaComp.png</Source>
+      <Name>Textures\TileSets\ZeldaComp</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Marcus\Documents\GitHub\MyOwnGame\StoraProjektet\StoraProjektet\bin\x86\Debug\Content\Textures\TileSets\ZeldaComp.xnb</Output>
+      <Time>2013-05-04T19:02:31.4079743+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\TileSets\NewFixedzElda.png</Source>
+      <Name>Textures\TileSets\NewFixedzElda</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Marcus\Documents\GitHub\MyOwnGame\StoraProjektet\StoraProjektet\bin\x86\Debug\Content\Textures\TileSets\NewFixedzElda.xnb</Output>
+      <Time>2013-05-04T21:26:22.4171728+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\HPBoutline.png</Source>
+      <Name>Textures\HPBoutline</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Marcus\Documents\GitHub\MyOwnGame\StoraProjektet\StoraProjektet\bin\x86\Debug\Content\Textures\HPBoutline.xnb</Output>
+      <Time>2013-05-05T11:12:26.1135664+02:00</Time>
+    </Item>
+    <Item>
+      <Source>expandlevel.spritefont</Source>
+      <Name>expandlevel</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Marcus\Documents\GitHub\MyOwnGame\StoraProjektet\StoraProjektet\bin\x86\Debug\Content\expandlevel.xnb</Output>
+      <Time>2013-05-05T11:32:33.1401353+02:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>
