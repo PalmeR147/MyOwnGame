@@ -89,3 +89,8 @@ C:\Users\Marcus\Documents\GitHub\MyOwnGame\StoraProjektet\StoraProjektet\bin\x86
 C:\Users\Marcus\Documents\GitHub\MyOwnGame\StoraProjektet\StoraProjektet\bin\x86\Debug\Content\Textures\TileSets\NewFixedzElda.xnb
 C:\Users\Marcus\Documents\GitHub\MyOwnGame\StoraProjektet\StoraProjektet\bin\x86\Debug\Content\Textures\HPBoutline.xnb
 C:\Users\Marcus\Documents\GitHub\MyOwnGame\StoraProjektet\StoraProjektet\bin\x86\Debug\Content\expandlevel.xnb
+C:\Users\nti\Documents\GitHub\MyOwnGame\StoraProjektet\StoraProjektet\bin\x86\Debug\Content\Textures\TileSets\ZeldaComp.xnb
+C:\Users\nti\Documents\GitHub\MyOwnGame\StoraProjektet\StoraProjektet\bin\x86\Debug\Content\Textures\TileSets\NewFixedzElda.xnb
+C:\Users\nti\Documents\GitHub\MyOwnGame\StoraProjektet\StoraProjektet\bin\x86\Debug\Content\Textures\HPBoutline.xnb
+C:\Users\nti\Documents\GitHub\MyOwnGame\StoraProjektet\StoraProjektet\bin\x86\Debug\Content\expandlevel.xnb
+C:\Users\nti\Documents\GitHub\MyOwnGame\StoraProjektet\StoraProjektet\bin\x86\Debug\Content\Textures\levelUp.xnb

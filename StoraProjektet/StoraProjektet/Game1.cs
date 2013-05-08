@@ -180,8 +180,6 @@ namespace StoraProjektet
             tiles.Add(Content.Load<Texture2D>("imgres"));
             tiles.Add(Content.Load<Texture2D>("Textures/water"));
 
-            Player p1 = new Player(150, 150);
-
             currentState = GameState.Menu;
             playButton = new Vector2(graphics.PreferredBackBufferWidth / 2 - play.Width / 2, graphics.PreferredBackBufferHeight / 2 - play.Height / 2);
             playBut = new Rectangle((int)playButton.X, (int)playButton.Y, (int)play.Width, (int)play.Height);
@@ -291,9 +289,11 @@ namespace StoraProjektet
             
             Attack.Update(gameTime);
 
+            Player.Update(gameTime);
+
             if (exp >= expToLevel)
             {
-                lvl += 1;
+                Player.LevelUp();
                 exp = 0;
                 expToLevel += expToLevel;
             }
@@ -323,6 +323,14 @@ namespace StoraProjektet
                                 }
                             }
                         }
+                        foreach (Enemy e in enemies2)
+                        {
+                            if (e.hP == 0)
+                            {
+                                e.hP = 10;
+                                e.alive = true;
+                            }
+                        }
                     }
                     foreach (Enemy e1 in enemies1)
                     {
@@ -345,6 +353,14 @@ namespace StoraProjektet
                                 }
                             }
                         }
+                        foreach (Enemy e in enemies1)
+                        {
+                            if (e.hP == 0)
+                            {
+                                e.hP = 10;
+                                e.alive = true;
+                            }
+                        }
                     }
                     if (charPlace.X > GraphicsDevice.Viewport.Width - character.Width)
                     {
@@ -359,6 +375,14 @@ namespace StoraProjektet
                                 {
                                     collisionTiles.Add(new Rectangle(x * tileWidth, y * tileHeight, tileWidth, tileHeight));
                                 }
+                            }
+                        }
+                        foreach (Enemy e in enemies3)
+                        {
+                            if (e.hP == 0)
+                            {
+                                e.hP = 10;
+                                e.alive = true;
                             }
                         }
                     }
@@ -397,6 +421,14 @@ namespace StoraProjektet
                                 {
                                     collisionTiles.Add(new Rectangle(x * tileWidth, y * tileHeight, tileWidth, tileHeight));
                                 }
+                            }
+                        }
+                        foreach (Enemy e in enemies4)
+                        {
+                            if (e.hP == 0)
+                            {
+                                e.hP = 10;
+                                e.alive = true;
                             }
                         }
                     }
@@ -599,6 +631,11 @@ namespace StoraProjektet
                 }
             }
             #endregion
+            spriteBatch.End();
+
+            //Full override drawing, allting som skall vara HELT på toppen. Överlappa ALLT. T.ex specscreen
+            spriteBatch.Begin(SpriteSortMode.BackToFront, BlendState.AlphaBlend);
+            Player.Draw(spriteBatch);
             spriteBatch.End();
             base.Draw(gameTime);
             

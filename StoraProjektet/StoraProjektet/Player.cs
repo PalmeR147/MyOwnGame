@@ -11,45 +11,38 @@ namespace StoraProjektet
     
     public class Player
     {
-        public ContentManager Content;
-        Texture2D charSheet;
-        public static int posX;
-        public static int posY;
-        public static int charSize = Game1.gameSize;
-        Rectangle currentTexture;
+        public static int skillPoints = 0;
+        public static bool levelUpScreen = false;
+        public static Rectangle attackSpeed;
+        public static Rectangle attackRange;
+        public static Rectangle attackDamage;
+        public static Texture2D levelUp;
 
-        private void LoadContent()
+        public void LoadContent(ContentManager content)
         {
-            charSheet = Content.Load<Texture2D>("Textures/GubbeSheet");
-            currentTexture = new Rectangle(0, 0, 32, 32);
+            levelUp = content.Load<Texture2D>("Textures/Namnlös");
         }
-        public Player()
-        {
-            posX = Game1.gameSize *= 10;
-            posY = Game1.gameSize *= 10;
-        }
-        public Player(int xPos, int yPos)
-        {
-            posX = xPos;
-            posY = yPos;
-            
-        }
+
         public static void Update(GameTime gameTime)
         {
-            
-        }
-        public void Invincible()
-        {
+            attackSpeed = new Rectangle(25, 25, 200, 70);
+            attackRange = new Rectangle(225, 95, 200, 70);
+            attackDamage = new Rectangle(425, 165, 200, 70);
 
+            //Om mus intersectar + klick, set arrow.range += 1; etc etc etc
         }
-        private void Draw(SpriteBatch SpriteBatch, GameTime gameTime)
-        {
-            SpriteBatch.Begin(SpriteSortMode.BackToFront, BlendState.AlphaBlend);
-            SpriteBatch.Draw(charSheet, new Rectangle(posX + charSize, posY + charSize, Convert.ToInt32((0.75 * charSize)), Convert.ToInt32((0.75 * charSize))),currentTexture, Color.White);
-            SpriteBatch.End();
 
-            
-            Draw(SpriteBatch, gameTime);
+        public static void Draw(SpriteBatch spriteBatch)
+        {
+            if (levelUpScreen)
+                spriteBatch.Draw(levelUp, new Rectangle(25, 25, 600, 200), Color.White);
+        }
+
+        public static void LevelUp()
+        {
+            Game1.lvl += 1;
+            skillPoints += 5;
+            levelUpScreen = true;
         }
     }
 }
