@@ -293,7 +293,8 @@ namespace StoraProjektet
 
             if (exp >= expToLevel)
             {
-                Player.LevelUp();
+                //Player.LevelUp();//fixalevelup
+                lvl += 1;
                 exp = 0;
                 expToLevel += expToLevel;
             }
@@ -301,6 +302,11 @@ namespace StoraProjektet
             foreach (Arrow a in arrows)
             {
                 a.Update(gameTime);
+            }
+            for (int i = 0; i < arrows.Count(); i++)
+            {
+                if (!arrows[i].isShooting)
+                    arrows.RemoveAt(i);
             }
 
             //Om siffran i map'en är 1, läggs en kollisionsrektangel till, annars ej.

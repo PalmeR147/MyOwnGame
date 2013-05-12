@@ -41,7 +41,7 @@ namespace StoraProjektet
             arrowRight,
             arrowUp,
             arrowDown,
-            none
+            none//Obsolete after new arrow handling
         }
         
         public Arrow(string direction)
@@ -147,7 +147,7 @@ namespace StoraProjektet
         }
         public void Draw(SpriteBatch spriteBatch)
         {
-            if (isShooting) //fungerar om man tar bort isshooting, något gör att den inte sätts alive, kolla movement
+            if (isShooting) //ritar endast när pilen skjuts
                 spriteBatch.Draw(Game1.arrowSpriteSheet, new Rectangle(xPos + spritePlaceModX, yPos + spritePlaceModY, (int)(Game1.gameSize * spriteSizeModW), (int)(Game1.gameSize * spriteSizeModH)), new Rectangle(spriteX, spriteY, spriteWidth, spriteHeight), Color.White);
         }
     }
