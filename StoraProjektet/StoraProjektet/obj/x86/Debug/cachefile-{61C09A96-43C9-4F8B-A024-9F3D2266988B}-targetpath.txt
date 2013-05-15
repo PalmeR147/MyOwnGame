@@ -19,3 +19,4 @@ Content\Textures\HPBoutline.xnb
 Content\Textures\levelUp.xnb
 Content\DefaultFont.xnb
 Content\expandlevel.xnb
+Content\Textures\ArrowPUP.xnb

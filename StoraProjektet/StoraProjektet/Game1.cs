@@ -119,6 +119,8 @@ namespace StoraProjektet
         List<Enemy> enemies3 = new List<Enemy>();
         List<Enemy> enemies4 = new List<Enemy>();
 
+        List<Item> items1 = new List<Item>();
+
         public static List<Arrow> arrows = new List<Arrow>();
 
         enum GameState 
@@ -151,6 +153,8 @@ namespace StoraProjektet
             enemies1.Add(new Skelett(14, 9, this.Content, 9, 2));
             enemies1.Add(new Zombie(5, 2, this.Content, 1, 2));
             enemies1.Add(new Zombie(5, 2, this.Content, 5, 6));
+
+            items1.Add(new Bow(20, 5, this.Content));
 
             enemies2.Add(new Skelett(256, 256, this.Content, 512, 128));
             enemies3.Add(new Skelett(64, 64, this.Content, 128, 32));
@@ -194,11 +198,6 @@ namespace StoraProjektet
             // TODO: Unload any non ContentManager content here
         }
 
-        /// <summary>
-        /// Allows the game to run logic such as updating the world,
-        /// checking for collisions, gathering input, and playing audio.
-        /// </summary>
-        /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
             // Allows the game to exit
@@ -297,6 +296,7 @@ namespace StoraProjektet
                 lvl += 1;
                 exp = 0;
                 expToLevel += expToLevel;
+                
             }
 
             foreach (Arrow a in arrows)
@@ -341,6 +341,10 @@ namespace StoraProjektet
                     foreach (Enemy e1 in enemies1)
                     {
                         e1.Update(gameTime);
+                    }
+                    foreach (Item i in items1)
+                    {
+                        i.Update(gameTime);
                     }
                     break;
                 case 2:
@@ -613,6 +617,10 @@ namespace StoraProjektet
                 foreach (Enemy e1 in enemies1)
                 {
                     e1.Draw(spriteBatch);
+                }
+                foreach (Item i in items1)
+                {
+                    i.Draw(spriteBatch);
                 }
             }
             if (currentState == GameState.Level2)

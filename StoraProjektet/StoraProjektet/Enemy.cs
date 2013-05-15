@@ -28,6 +28,9 @@ namespace StoraProjektet
         public Texture2D hpTex;
         public int lvl;
 
+        public Random random = new Random();
+        public string dir;
+
         public Rectangle enemyRect;
         Rectangle sourceRect;
         Rectangle charBox;
@@ -80,6 +83,22 @@ namespace StoraProjektet
         {
             hpRec = new Rectangle(enemyRect.X, enemyRect.Y - enemyRect.Height / 2 + 5, hP * 2, 2);
 
+            if(alive)
+            {
+                if (random.Next(1, 100) == 1)
+                {
+                    int rand = random.Next(1, 4);
+                    if (rand == 1)
+                        dir = "arrowRight";
+                    else if (rand == 2)
+                        dir = "arrowLeft";
+                    else if (rand == 3)
+                        dir = "arrowUp";
+                    else if (rand == 4)
+                        dir = "arrowDown";
+                    Game1.arrows.Add(new Arrow(dir, true, xPos, yPos));
+                }
+            }
 
             if (alive)
             {
@@ -91,7 +110,7 @@ namespace StoraProjektet
 
                     foreach (Arrow a in Game1.arrows)
                     {
-                        if (a.hitBox.Intersects(enemyRect) && a.isShooting && a.shootDirection != Arrow.shootDir.none)
+                        if (a.hitBox.Intersects(enemyRect) && a.isShooting && a.shootDirection != Arrow.shootDir.none && !a.isHostile)
                         {
                             hP -= a.damage;
                             a.isShooting = false;

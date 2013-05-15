@@ -11,21 +11,36 @@ namespace StoraProjektet
     {
         public int xPos;
         public int yPos;
-        public string item;
+
         public bool onGround;
         public Texture2D itemTex;
+        public Rectangle destinationRec;
 
-        public Item(int xPos, int yPos, string item, Texture2D itemTex)
+        public Item(int xPos, int yPos)
         {
             this.xPos = xPos;
             this.yPos = yPos;
-            this.item = item;
-            this.itemTex = itemTex;
+
+            destinationRec = new Rectangle(xPos * Game1.gameSize, yPos * Game1.gameSize, Game1.gameSize, Game1.gameSize);
+        }
+        public void Update(GameTime gameTime)
+        {
+            if (destinationRec.Intersects(Game1.charBox))
+            {
+                PickupItem("bow");
+            }
+        }
+        public void PickupItem(string item)
+        {
+            if (item == "bow")
+            {
+                
+            }
         }
         public void Draw(SpriteBatch spriteBatch)
         {
             if (onGround)
-                spriteBatch.Draw(itemTex, new Rectangle(xPos, yPos, Game1.gameSize, Game1.gameSize), Color.White);
+                spriteBatch.Draw(itemTex, destinationRec, Color.White);
         }
     }
 }

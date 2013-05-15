@@ -95,3 +95,4 @@ C:\Users\nti\Documents\GitHub\MyOwnGame\StoraProjektet\StoraProjektet\bin\x86\De
 C:\Users\nti\Documents\GitHub\MyOwnGame\StoraProjektet\StoraProjektet\bin\x86\Debug\Content\expandlevel.xnb
 C:\Users\nti\Documents\GitHub\MyOwnGame\StoraProjektet\StoraProjektet\bin\x86\Debug\Content\Textures\levelUp.xnb
 C:\Users\Marcus\Documents\GitHub\MyOwnGame\StoraProjektet\StoraProjektet\bin\x86\Debug\Content\Textures\levelUp.xnb
+C:\Users\nti\Documents\GitHub\MyOwnGame\StoraProjektet\StoraProjektet\bin\x86\Debug\Content\Textures\ArrowPUP.xnb

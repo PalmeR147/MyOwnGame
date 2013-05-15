@@ -17,6 +17,8 @@ namespace StoraProjektet
         public string direction;
         public bool isShooting;
 
+        public bool isHostile;
+
         public int startPosX;
         public int startPosY;
 
@@ -57,9 +59,30 @@ namespace StoraProjektet
             xPos = (int)Game1.charPlace.X;
             yPos = (int)Game1.charPlace.Y;
         }
+        public Arrow(string direction, bool isHostile, int xPos, int yPos)
+        {
+            this.xPos = xPos;
+            this.yPos = yPos;
+            this.direction = direction;
+            this.isHostile = isHostile;
+
+            isShooting = true;
+
+            startPosX = (int)Game1.charPlace.X;
+            startPosY = (int)Game1.charPlace.Y;
+            xPos = (int)Game1.charPlace.X;
+            yPos = (int)Game1.charPlace.Y;
+        }
         public void Update(GameTime gameTime)
         {
             hitBox = new Rectangle(xPos, yPos, Game1.gameSize, Game1.gameSize / 2);
+
+            if (new Rectangle((int)Game1.charPlace.X, (int)Game1.charPlace.Y, Game1.charWidth, Game1.charHeight).Intersects(hitBox) && !Game1.Invincible(gameTime) && isHostile)
+            {
+                Game1.health -= 1;
+                Game1.timer = 0;
+                isShooting = false;
+            }
 
             switch (direction)
             {
