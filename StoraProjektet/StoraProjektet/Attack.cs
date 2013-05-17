@@ -19,6 +19,7 @@ namespace StoraProjektet
         public static KeyboardState currentKey;
         public static Stopwatch s = new Stopwatch();
         public static Stopwatch r = new Stopwatch();
+        public static int range = 5;
 
         public static bool b = true;
         
@@ -43,7 +44,7 @@ namespace StoraProjektet
             {
                 arrowX = (int)Game1.charPlace.X;
                 arrowY = (int)Game1.charPlace.Y;
-                Game1.arrows.Add(new Arrow("arrowRight"));
+                Game1.arrows.Add(new Arrow("arrowRight", range));
                 s.Restart();
                 s.Start();
             }
@@ -51,7 +52,7 @@ namespace StoraProjektet
             {
                 arrowX = (int)Game1.charPlace.X;
                 arrowY = (int)Game1.charPlace.Y;
-                Game1.arrows.Add(new Arrow("arrowLeft"));
+                Game1.arrows.Add(new Arrow("arrowLeft", range));
                 s.Restart();
                 s.Start();
             }
@@ -59,7 +60,7 @@ namespace StoraProjektet
             {
                 arrowX = (int)Game1.charPlace.X;
                 arrowY = (int)Game1.charPlace.Y;
-                Game1.arrows.Add(new Arrow("arrowUp"));
+                Game1.arrows.Add(new Arrow("arrowUp", range));
                 s.Restart();
                 s.Start();
             }
@@ -67,7 +68,7 @@ namespace StoraProjektet
             {
                 arrowX = (int)Game1.charPlace.X;
                 arrowY = (int)Game1.charPlace.Y;
-                Game1.arrows.Add(new Arrow("arrowDown"));
+                Game1.arrows.Add(new Arrow("arrowDown", range));
                 s.Restart();
                 s.Start();
             }
@@ -75,10 +76,10 @@ namespace StoraProjektet
             {
                 arrowX = (int)Game1.charPlace.X;
                 arrowY = (int)Game1.charPlace.Y;
-                Game1.arrows.Add(new Arrow("arrowDown"));
-                Game1.arrows.Add(new Arrow("arrowUp"));
-                Game1.arrows.Add(new Arrow("arrowLeft"));
-                Game1.arrows.Add(new Arrow("arrowRight"));
+                Game1.arrows.Add(new Arrow("arrowDown", range));
+                Game1.arrows.Add(new Arrow("arrowUp", range));
+                Game1.arrows.Add(new Arrow("arrowLeft", range));
+                Game1.arrows.Add(new Arrow("arrowRight", range));
                 r.Restart();
                 r.Start();
             }

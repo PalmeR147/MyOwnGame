@@ -46,11 +46,13 @@ namespace StoraProjektet
             none//Obsolete after new arrow handling
         }
         
-        public Arrow(string direction)
+        public Arrow(string direction, int range)
         {
             xPos = (int)Game1.charPlace.X;
             yPos = (int)Game1.charPlace.Y;
             this.direction = direction;
+
+            this.range = range;
 
             isShooting = true;
 

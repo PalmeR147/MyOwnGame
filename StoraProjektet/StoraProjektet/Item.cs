@@ -25,16 +25,20 @@ namespace StoraProjektet
         }
         public void Update(GameTime gameTime)
         {
-            if (destinationRec.Intersects(Game1.charBox))
+            if (onGround)
             {
-                PickupItem("bow");
+                if (destinationRec.Intersects(Game1.charBox))
+                {
+                    PickupItem("bow");
+                }
             }
         }
         public void PickupItem(string item)
         {
             if (item == "bow")
             {
-                
+                Attack.range += 3;
+                onGround = false;
             }
         }
         public void Draw(SpriteBatch spriteBatch)

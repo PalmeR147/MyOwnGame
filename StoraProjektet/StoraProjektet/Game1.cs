@@ -479,7 +479,8 @@ namespace StoraProjektet
                 if (musRec.Intersects(playBut))
                 {
                     health = 10;
-                    charPlace = new Vector2(0, 0);
+                    charPlace.X = 1 * gameSize;
+                    charPlace.Y = 1 * gameSize;
                     currentState = GameState.Level1;
                 }
         }
