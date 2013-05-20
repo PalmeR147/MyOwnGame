@@ -34,9 +34,13 @@ namespace StoraProjektet
             {
                 for (int x = 0; x < Maps.colmap1.GetLength(1); x++)
                 {
-                    if (Maps.colmap1[y, x] != 0)
+                    if (Maps.colmap1[y, x] == 1)
                     {
                         collisionTiles.Add(new Rectangle(x * tileWidth, y * tileHeight, tileWidth, tileHeight));
+                    }
+                    else if (Maps.colmap1[y, x] == 2)
+                    {
+                        //Lägg till i specialtiles, if char.intersect(specialtile) Do.Buff
                     }
                 }
             }
@@ -119,7 +123,7 @@ namespace StoraProjektet
         List<Enemy> enemies3 = new List<Enemy>();
         List<Enemy> enemies4 = new List<Enemy>();
 
-        List<Item> items1 = new List<Item>();
+        public static List<Item> items1 = new List<Item>();
 
         public static List<Arrow> arrows = new List<Arrow>();
 
@@ -284,6 +288,8 @@ namespace StoraProjektet
         }
         public void PlayingUpdate(GameTime gameTime,int level)
         {
+            charBox = new Rectangle((int)charPlace.X, (int)charPlace.Y, Game1.gameSize, Game1.gameSize);
+
             Movement.Update(gameTime);
             
             Attack.Update(gameTime);

@@ -20,6 +20,7 @@ namespace StoraProjektet
         public static Stopwatch s = new Stopwatch();
         public static Stopwatch r = new Stopwatch();
         public static int range = 5;
+        public static int attackSpeed = 750;
 
         public static bool b = true;
         
@@ -40,7 +41,7 @@ namespace StoraProjektet
             }
 
             #region ArrowKeyPress
-            if (currentKey.IsKeyDown(Keys.NumPad6) && s.ElapsedMilliseconds > 750)
+            if (currentKey.IsKeyDown(Keys.NumPad6) && s.ElapsedMilliseconds > attackSpeed)
             {
                 arrowX = (int)Game1.charPlace.X;
                 arrowY = (int)Game1.charPlace.Y;
@@ -48,7 +49,7 @@ namespace StoraProjektet
                 s.Restart();
                 s.Start();
             }
-            if (currentKey.IsKeyDown(Keys.NumPad4) && s.ElapsedMilliseconds > 750)
+            if (currentKey.IsKeyDown(Keys.NumPad4) && s.ElapsedMilliseconds > attackSpeed)
             {
                 arrowX = (int)Game1.charPlace.X;
                 arrowY = (int)Game1.charPlace.Y;
@@ -56,7 +57,7 @@ namespace StoraProjektet
                 s.Restart();
                 s.Start();
             }
-            if (currentKey.IsKeyDown(Keys.NumPad8) && s.ElapsedMilliseconds > 750)
+            if (currentKey.IsKeyDown(Keys.NumPad8) && s.ElapsedMilliseconds > attackSpeed)
             {
                 arrowX = (int)Game1.charPlace.X;
                 arrowY = (int)Game1.charPlace.Y;
@@ -64,7 +65,7 @@ namespace StoraProjektet
                 s.Restart();
                 s.Start();
             }
-            if (currentKey.IsKeyDown(Keys.NumPad2) && s.ElapsedMilliseconds > 750)
+            if (currentKey.IsKeyDown(Keys.NumPad2) && s.ElapsedMilliseconds > attackSpeed)
             {
                 arrowX = (int)Game1.charPlace.X;
                 arrowY = (int)Game1.charPlace.Y;

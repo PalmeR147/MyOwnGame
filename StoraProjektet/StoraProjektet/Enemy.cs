@@ -28,6 +28,8 @@ namespace StoraProjektet
         public Texture2D hpTex;
         public int lvl;
 
+        public ContentManager Content;
+
         public Random random = new Random();
         public string dir;
 
@@ -48,6 +50,8 @@ namespace StoraProjektet
 
         public Enemy(int posX, int posY, ContentManager Content, int maxX, int minX)
         {
+            this.Content = Content;
+
             xPos = posX * Game1.gameSize;
             yPos = posY * Game1.gameSize;
             enemyTexture = Content.Load<Texture2D>("gaikotu");
@@ -120,7 +124,10 @@ namespace StoraProjektet
 
                     if (hP <= 0)
                     {
-                        //SpawnRandomLoot
+                        Random rLoot = new Random();
+                        int lootR = rLoot.Next(1, 10);
+                        if (lootR == 1)
+                            Game1.items1.Add(new Bow((int)(xPos / Game1.gameSize), (int)(yPos / Game1.gameSize), Content));
                         alive = false;
                         Game1.exp += 10 * lvl;
                     }
